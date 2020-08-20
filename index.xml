@@ -20,5 +20,25 @@
       <description></description>
     </item>
     
+    <item>
+      <title>GDB Cheatsheet</title>
+      <link>https://yusufhegazy.github.io/posts/gdb-cheatsheet/</link>
+      <pubDate>Tue, 18 Aug 2020 13:56:57 +0000</pubDate>
+      
+      <guid>https://yusufhegazy.github.io/posts/gdb-cheatsheet/</guid>
+      <description>Data:
+ disas main to disassemble function x/50wx $esp examine 50 words in hex starting from esp x/50i $eip examine 50 instructions from eip x anything examine address and show it’s contents info variables varname will show any variable address (for global!) info functions to list all functions info frame shows the saved RTN address under &amp;ldquo;saved eip&amp;rdquo; info proc map shows memory map ctx shows general info about everything (works in gef only)    Flow</description>
+    </item>
+    
+    <item>
+      <title>Not Really AI (Pwn - 200 Points)</title>
+      <link>https://yusufhegazy.github.io/posts/ctf-writeup/</link>
+      <pubDate>Tue, 09 Jun 2020 17:49:21 +0000</pubDate>
+      
+      <guid>https://yusufhegazy.github.io/posts/ctf-writeup/</guid>
+      <description>Not Really AI (Pwn - 200 Points) Little Background This is a Binary exploitaion challenge, based around a format string vulnerability.
+ Misusage of the libc printf() function can lead to serious information leakage and even code execution. when we pass one argument (for example printf(foo)) we can:  leak stack addresses using %x or %p format specifiers. overwrite any pointer&amp;rsquo;s value using %n specifier (note that we can&amp;rsquo;t overwrite plain stack addresses as the %n format specifier can only overwrite by reference and not by value)    For more information on format strings please check this awesome resource</description>
+    </item>
+    
   </channel>
 </rss>
