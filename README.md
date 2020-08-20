@@ -1,1 +1,0 @@
-# yusufhegazy.github.io
