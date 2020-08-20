@@ -3,19 +3,36 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://yusufhegazy.github.io/posts/my-first-post/</loc>
+    <lastmod>2020-08-20T17:19:44+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://yusufhegazy.github.io/posts/</loc>
+    <lastmod>2020-08-20T17:19:44+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://yusufhegazy.github.io/tags/</loc>
+    <lastmod>2020-08-20T17:19:44+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://yusufhegazy.github.io/tags/untagged/</loc>
+    <lastmod>2020-08-20T17:19:44+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://yusufhegazy.github.io/</loc>
+    <lastmod>2020-08-20T17:19:44+02:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://yusufhegazy.github.io/blog/</loc>
   </url>
   
   <url>
     <loc>https://yusufhegazy.github.io/series/</loc>
-  </url>
-  
-  <url>
-    <loc>https://yusufhegazy.github.io/tags/</loc>
-  </url>
-  
-  <url>
-    <loc>https://yusufhegazy.github.io/</loc>
   </url>
   
 </urlset>
