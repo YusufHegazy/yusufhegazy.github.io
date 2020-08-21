@@ -6,19 +6,10 @@
     <description>Recent content on Yusuf Hegazy</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 20 Aug 2020 17:19:44 +0200</lastBuildDate>
+    <lastBuildDate>Tue, 18 Aug 2020 13:56:57 +0000</lastBuildDate>
     
 	<atom:link href="https://yusufhegazy.github.io/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>My First Post</title>
-      <link>https://yusufhegazy.github.io/posts/my-first-post/</link>
-      <pubDate>Thu, 20 Aug 2020 17:19:44 +0200</pubDate>
-      
-      <guid>https://yusufhegazy.github.io/posts/my-first-post/</guid>
-      <description></description>
-    </item>
     
     <item>
       <title>GDB Cheatsheet</title>
@@ -36,7 +27,7 @@
       <pubDate>Tue, 09 Jun 2020 17:49:21 +0000</pubDate>
       
       <guid>https://yusufhegazy.github.io/posts/ctf-writeup/</guid>
-      <description>Not Really AI (Pwn - 200 Points) Little Background This is a Binary exploitaion challenge, based around a format string vulnerability.
+      <description>Little Background This is a Binary exploitaion challenge, based around a format string vulnerability.
  Misusage of the libc printf() function can lead to serious information leakage and even code execution. when we pass one argument (for example printf(foo)) we can:  leak stack addresses using %x or %p format specifiers. overwrite any pointer&amp;rsquo;s value using %n specifier (note that we can&amp;rsquo;t overwrite plain stack addresses as the %n format specifier can only overwrite by reference and not by value)    For more information on format strings please check this awesome resource</description>
     </item>
     

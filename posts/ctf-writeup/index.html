@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="author" content="">
-<meta name="description" content="Not Really AI (Pwn - 200 Points) Little Background This is a Binary exploitaion challenge, based around a format string vulnerability.
+<meta name="description" content="Little Background This is a Binary exploitaion challenge, based around a format string vulnerability.
  Misusage of the libc printf() function can lead to serious information leakage and even code execution. when we pass one argument (for example printf(foo)) we can:  leak stack addresses using %x or %p format specifiers. overwrite any pointer&amp;rsquo;s value using %n specifier (note that we can&amp;rsquo;t overwrite plain stack addresses as the %n format specifier can only overwrite by reference and not by value)    For more information on format strings please check this awesome resource" />
 <meta name="keywords" content="" />
 <meta name="robots" content="noodp" />
@@ -34,26 +34,27 @@
 
 
 <meta itemprop="name" content="Not Really AI (Pwn - 200 Points)">
-<meta itemprop="description" content="Not Really AI (Pwn - 200 Points) Little Background This is a Binary exploitaion challenge, based around a format string vulnerability.
+<meta itemprop="description" content="Little Background This is a Binary exploitaion challenge, based around a format string vulnerability.
  Misusage of the libc printf() function can lead to serious information leakage and even code execution. when we pass one argument (for example printf(foo)) we can:  leak stack addresses using %x or %p format specifiers. overwrite any pointer&rsquo;s value using %n specifier (note that we can&rsquo;t overwrite plain stack addresses as the %n format specifier can only overwrite by reference and not by value)    For more information on format strings please check this awesome resource">
-<meta itemprop="dateModified" content="2020-06-09T17:49:21&#43;00:00" />
-<meta itemprop="wordCount" content="1061">
+<meta itemprop="dateModified" content="2020-06-09T17:49:21+00:00" />
+<meta itemprop="wordCount" content="1054">
 <meta itemprop="image" content="https://yusufhegazy.github.io/"/>
 
 
 
 <meta itemprop="keywords" content="" />
+
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://yusufhegazy.github.io/"/>
 
 <meta name="twitter:title" content="Not Really AI (Pwn - 200 Points)"/>
-<meta name="twitter:description" content="Not Really AI (Pwn - 200 Points) Little Background This is a Binary exploitaion challenge, based around a format string vulnerability.
+<meta name="twitter:description" content="Little Background This is a Binary exploitaion challenge, based around a format string vulnerability.
  Misusage of the libc printf() function can lead to serious information leakage and even code execution. when we pass one argument (for example printf(foo)) we can:  leak stack addresses using %x or %p format specifiers. overwrite any pointer&rsquo;s value using %n specifier (note that we can&rsquo;t overwrite plain stack addresses as the %n format specifier can only overwrite by reference and not by value)    For more information on format strings please check this awesome resource"/>
 
 
 
     <meta property="og:title" content="Not Really AI (Pwn - 200 Points)" />
-<meta property="og:description" content="Not Really AI (Pwn - 200 Points) Little Background This is a Binary exploitaion challenge, based around a format string vulnerability.
+<meta property="og:description" content="Little Background This is a Binary exploitaion challenge, based around a format string vulnerability.
  Misusage of the libc printf() function can lead to serious information leakage and even code execution. when we pass one argument (for example printf(foo)) we can:  leak stack addresses using %x or %p format specifiers. overwrite any pointer&rsquo;s value using %n specifier (note that we can&rsquo;t overwrite plain stack addresses as the %n format specifier can only overwrite by reference and not by value)    For more information on format strings please check this awesome resource" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://yusufhegazy.github.io/posts/ctf-writeup/" />
@@ -146,8 +147,7 @@
       
 
       <div class="post-content">
-        <h1 id="not-really-ai-pwn---200-points">Not Really AI (Pwn - 200 Points)</h1>
-<h2 id="little-background">Little Background</h2>
+        <h2 id="little-background">Little Background</h2>
 <p>This is a Binary exploitaion challenge, based around a format string vulnerability.</p>
 <ul>
 <li>Misusage of the libc <code>printf()</code> function can lead to serious information leakage and even code execution.</li>
@@ -336,7 +336,7 @@ a lot of blank spaces will be printed, and eventually our flag&hellip;
           <line x1="16" y1="17" x2="8" y2="17"></line>
           <polyline points="10 9 9 9 8 9"></polyline>
         </svg>
-        1061 Words
+        1054 Words
       </p>
 
       <p>
