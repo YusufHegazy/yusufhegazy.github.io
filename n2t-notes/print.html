@@ -1,0 +1,778 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>nand2tetris-notes</title>
+        
+        <meta name="robots" content="noindex" />
+        
+        
+
+
+        <!-- Custom HTML head -->
+        
+
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        
+        <link rel="icon" href="favicon.svg">
+        
+        
+        <link rel="shortcut icon" href="favicon.png">
+        
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        
+        <link rel="stylesheet" href="fonts/fonts.css">
+        
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="nand2tetris_w1.html"><strong aria-hidden="true">1.</strong> Week 1</a></li><li class="chapter-item expanded "><a href="nand2tetris_p1.html"><strong aria-hidden="true">2.</strong> Project 1</a></li><li class="chapter-item expanded "><a href="nand2tetris_p2.html"><strong aria-hidden="true">3.</strong> Project 2</a></li><li class="chapter-item expanded "><a href="nand2tetris_p3.html"><strong aria-hidden="true">4.</strong> Project 3</a></li><li class="chapter-item expanded "><a href="nand2tetris_w4.html"><strong aria-hidden="true">5.</strong> Week 4</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                        
+                    </div>
+
+                    <h1 class="menu-title">nand2tetris-notes</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1><a class="header" href="#nand2tetris_w1" id="nand2tetris_w1">nand2tetris_w1</a></h1>
+<h3><a class="header" href="#example-stub-file-for-xor-gate" id="example-stub-file-for-xor-gate">example stub file for <code>XOR</code> Gate:</a></h3>
+<ul>
+<li>imagine an XOR gate with two inputs and an output <code>a</code>, <code>b</code> and <code>out</code> </li>
+<li>we then fill the actuall implementation of the gate at the <code>PARTS</code> section</li>
+<li>construct the code at <code>PARTS</code> section from left to right/input to output of the image as shown below</li>
+</ul>
+<img src="attachments/Clipboard_2020-06-26-22-27-38.png" width="500">
+<pre><code>CHIP Xor {
+    IN a, b;
+    OUT out;
+
+    PARTS:
+    // Put your code here:
+    Not(in=a,out=Nota);
+    Not(in=b,out=Notb);
+    And(a=a,b=Notb,out=aNotb);
+    And(a=Nota,b=b,out=bNota);
+    Or (a=aNotb,b=bNota,out=out);
+}
+</code></pre>
+<h2><a class="header" href="#multi-bit-buses" id="multi-bit-buses">Multi-Bit Buses:</a></h2>
+<ul>
+<li><strong>we can declare them in the API of our chip...</strong> <em>ex: <code>a[4]</code></em></li>
+<li><strong>we can use a single bit of the bus in our implementation...</strong> <em>ex: to select the first bit we use <code>a[0]</code> or <code>a[2]</code> to select the third bit</em></li>
+<li><strong>to use all the array of buses in one operation just use the name of the bus without <code>[ ]</code>...</strong> <em>ex: <code>a</code></em></li>
+<li>width of internal pins is deduced automatically</li>
+<li>we can use the constants true and false to set or unset buses</li>
+</ul>
+<h3><a class="header" href="#example-implementation-of-a-4-bit-and-gate" id="example-implementation-of-a-4-bit-and-gate">example implementation of a 4-bit and gate:</a></h3>
+<pre><code>CHIP And4 {
+    IN a[4], b[4];
+    OUT out[4];
+
+    PARTS:
+    AND(a=a[0], b=b[0], out=out[0]);
+    AND(a=a[1], b=b[1], out=out[1]);
+    AND(a=a[2], b=b[2], out=out[2]);
+    AND(a=a[3], b=b[3], out=out[3]);
+
+}
+</code></pre>
+<h1><a class="header" href="#nand2tetris_p1" id="nand2tetris_p1">nand2tetris_p1</a></h1>
+<p>refer to this for nand implementations of basic gates:
+<img src="attachments/Clipboard_2020-06-27-15-25-16.png" alt="" /></p>
+<h3><a class="header" href="#1-not" id="1-not">1. Not</a></h3>
+<p><img src="attachments/Clipboard_2020-06-27-15-05-30.png" alt="" /></p>
+<pre><code>/**
+ * Not gate:
+ * out = not in
+ */
+
+CHIP Not {
+    IN in;
+    OUT out;
+
+    PARTS:
+    // Put your code here:
+    Nand(a=in, b=in, out=out);
+}
+</code></pre>
+<h3><a class="header" href="#2-and" id="2-and">2. And</a></h3>
+<p><img src="attachments/Clipboard_2020-06-27-15-17-44.png" alt="" /></p>
+<pre><code>/**
+ * And gate: 
+ * out = 1 if (a == 1 and b == 1)
+ *       0 otherwise
+ */
+
+CHIP And {
+    IN a, b;
+    OUT out;
+
+    PARTS:
+    Nand(a=a, b=b, out=aAndb);
+    Not(in=aAndb, out=out);
+}
+</code></pre>
+<h3><a class="header" href="#3-or" id="3-or">3. Or</a></h3>
+<p><img src="attachments/Clipboard_2020-06-27-15-30-53.png" alt="" /></p>
+<pre><code>/**
+ * Or gate:
+ * out = 1 if (a == 1 or b == 1)
+ *       0 otherwise
+ */
+
+CHIP Or {
+    IN a, b;
+    OUT out;
+
+    PARTS:
+    Not(in=a, out=Nota);
+    Not(in=b, out=Notb);
+    Nand(a=Nota, b=Notb, out=out);
+}
+</code></pre>
+<h3><a class="header" href="#4-xor" id="4-xor">4. Xor</a></h3>
+<p><img src="attachments/Clipboard_2020-06-27-15-42-18.png" alt="" /></p>
+<pre><code>/**
+ * Exclusive-or gate:
+ * out = not (a == b)
+ */
+
+CHIP Xor {
+    IN a, b;
+    OUT out;
+
+    PARTS:
+    Not(in=a, out=Nota);
+	Not(in=b, out=Notb);
+	And(a=Nota, b=b, out=NotaAndb);
+	And(a=a, b=Notb, out=aAndNotb);
+	Or(a=NotaAndb, b=aAndNotb, out=out);
+}
+</code></pre>
+<h3><a class="header" href="#5-mux" id="5-mux">5. Mux</a></h3>
+<p><img src="attachments/Clipboard_2020-06-27-15-53-16.png" alt="" /></p>
+<pre><code>/** 
+ * Multiplexor:
+ * out = a if sel == 0
+ *       b otherwise
+ */
+
+CHIP Mux {
+    IN a, b, sel;
+    OUT out;
+
+    PARTS:
+    Not(in=sel, out=Notsel);
+    And(a=b, b=sel, out=bAndsel);
+    And(a=a, b=Notsel, out=aAndNotsel);
+    Or(a=bAndsel, b=aAndNotsel, out=out);
+}
+</code></pre>
+<h3><a class="header" href="#6-dmux" id="6-dmux">6. DMux:</a></h3>
+<p><img src="attachments/Clipboard_2020-06-27-19-15-53.png" alt="" /></p>
+<pre><code>/**
+ * Demultiplexor:
+ * {a, b} = {in, 0} if sel == 0
+ *          {0, in} if sel == 1
+ */
+
+CHIP DMux {
+    IN in, sel;
+    OUT a, b;
+
+    PARTS:
+    Not(in=sel, out=Notsel);
+    And(a=in, b=Notsel, out=a);
+    And(a=in, b=sel, out=b);
+}
+</code></pre>
+<hr />
+<h2><a class="header" href="#multi-bit-variants" id="multi-bit-variants">Multi-bit variants:</a></h2>
+<h3><a class="header" href="#7-not16" id="7-not16">7. Not16</a></h3>
+<p><img src="attachments/Clipboard_2020-06-27-19-18-54.png" alt="" /></p>
+<pre><code>/**
+ * 16-bit Not:
+ * for i=0..15: out[i] = not in[i]
+ */
+
+CHIP Not16 {
+    IN in[16];
+    OUT out[16];
+
+    PARTS:
+    Not(in=in[0], out=out[0]);
+    Not(in=in[1], out=out[1]);
+    Not(in=in[2], out=out[2]);
+    Not(in=in[3], out=out[3]);
+    Not(in=in[4], out=out[4]);
+    Not(in=in[5], out=out[5]);
+    Not(in=in[6], out=out[6]);
+    Not(in=in[7], out=out[7]);
+    Not(in=in[8], out=out[8]);
+    Not(in=in[9], out=out[9]);
+    Not(in=in[10], out=out[10]);
+    Not(in=in[11], out=out[11]);
+    Not(in=in[12], out=out[12]);
+    Not(in=in[13], out=out[13]);
+    Not(in=in[14], out=out[14]);
+    Not(in=in[15], out=out[15]);
+}
+</code></pre>
+<p><em><strong>we will do the same for And16, Or16 and Mux16!</strong></em></p>
+<hr />
+<p>multi-way variants:</p>
+<h3><a class="header" href="#8or8way" id="8or8way">8.Or8Way</a></h3>
+<p><img src="attachments/Clipboard_2020-06-27-20-14-25.png" alt="" /></p>
+<pre><code>/**
+ * 8-way Or: 
+ * out = (in[0] or in[1] or ... or in[7])
+ */
+
+CHIP Or8Way {
+    IN in[8];
+    OUT out;
+
+    PARTS:
+    Or(a=in[0], b=in[1], out=out0);
+    Or(a=in[2], b=in[3], out=out1);
+    Or(a=in[4], b=in[5], out=out2);
+    Or(a=in[6], b=in[7], out=out3);
+    Or(a=out0, b=out1, out=out0Orout1);
+    Or(a=out2, b=out3, out=out2Orout3);
+    Or(a=out0Orout1, b=out2Orout3, out=out);
+ 
+}
+</code></pre>
+<h3><a class="header" href="#9-mux4way16" id="9-mux4way16">9. Mux4Way16</a></h3>
+<p><img src="attachments/Clipboard_2020-06-27-20-38-52.png" alt="" />
+we can use two 2x1 Mux16 to get a 4x1 Mux16 aka Mux4Way16:
+<img src="attachments/Clipboard_2020-06-28-22-24-41.png" alt="" /></p>
+<pre><code>CHIP Mux4Way16 {
+    IN a[16], b[16], c[16], d[16], sel[2];
+    OUT out[16];
+
+    PARTS:
+    Mux16(a=a, b=b, sel=sel[0], out=out1);
+    Mux16(a=c, b=d, sel=sel[0], out=out2);
+    Mux16(a=out1, b=out2, sel=sel[1], out=out);
+
+
+}
+</code></pre>
+<h3><a class="header" href="#10-mux8way16" id="10-mux8way16">10. Mux8way16</a></h3>
+<p>chain them as in the <code>Mux4Way16</code> </p>
+<pre><code>CHIP Mux8Way16 {
+    IN a[16], b[16], c[16], d[16],
+       e[16], f[16], g[16], h[16],
+       sel[3];
+    OUT out[16];
+
+    PARTS:
+    Mux4Way16(a=a, b=b, c=c, d=d, sel=sel[0..1], out=out1);
+    Mux4Way16(a=e, b=f, c=g, d=h, sel=sel[0..1], out=out2);
+    Mux16(a=out1, b=out2, sel=sel[2], out=out);
+
+}
+</code></pre>
+<h3><a class="header" href="#11-dmux4way" id="11-dmux4way">11. DMux4Way</a></h3>
+<p>chain DMux's as follow:
+<img src="attachments/Clipboard_2020-06-28-22-42-32.png" alt="" /></p>
+<h1><a class="header" href="#nand2tetris_p2" id="nand2tetris_p2">nand2tetris_p2</a></h1>
+<h3><a class="header" href="#1-half-adder" id="1-half-adder">1. Half Adder:</a></h3>
+<p>just construct the truth table and you will know what to do:
+<img src="attachments/Clipboard_2020-06-28-22-59-16.png" alt="" /></p>
+<pre><code>CHIP HalfAdder {
+    IN a, b;    // 1-bit inputs
+    OUT sum,    // Right bit of a + b 
+        carry;  // Left bit of a + b
+
+    PARTS:
+    And(a=a, b=b, out=carry);
+    Xor(a=a, b=b, out=sum);
+    
+}
+</code></pre>
+<h3><a class="header" href="#2-full-adder" id="2-full-adder">2. Full Adder:</a></h3>
+<p>we will just stick two Half Adders together:
+<img src="attachments/Clipboard_2020-06-29-00-05-56.png" alt="" /></p>
+<h3><a class="header" href="#3alu" id="3alu">3.ALU</a></h3>
+<p>here is the schematic for our ALU (it's pretty self explainatory)
+<img src="attachments/Clipboard_2020-07-02-19-26-41.png" alt="" /></p>
+<pre><code>// This file is part of www.nand2tetris.org
+// and the book &quot;The Elements of Computing Systems&quot;
+// by Nisan and Schocken, MIT Press.
+// File name: projects/02/ALU.hdl
+
+/**
+ * The ALU (Arithmetic Logic Unit).
+ * Computes one of the following functions:
+ * x+y, x-y, y-x, 0, 1, -1, x, y, -x, -y, !x, !y,
+ * x+1, y+1, x-1, y-1, x&amp;y, x|y on two 16-bit inputs, 
+ * according to 6 input bits denoted zx,nx,zy,ny,f,no.
+ * In addition, the ALU computes two 1-bit outputs:
+ * if the ALU output == 0, zr is set to 1; otherwise zr is set to 0;
+ * if the ALU output &lt; 0, ng is set to 1; otherwise ng is set to 0.
+ */
+
+// Implementation: the ALU logic manipulates the x and y inputs
+// and operates on the resulting values, as follows:
+// if (zx == 1) set x = 0        // 16-bit constant
+// if (nx == 1) set x = !x       // bitwise not
+// if (zy == 1) set y = 0        // 16-bit constant
+// if (ny == 1) set y = !y       // bitwise not
+// if (f == 1)  set out = x + y  // integer 2's complement addition
+// if (f == 0)  set out = x &amp; y  // bitwise and
+// if (no == 1) set out = !out   // bitwise not
+// if (out == 0) set zr = 1
+// if (out &lt; 0) set ng = 1
+
+CHIP ALU {
+    IN  
+        x[16], y[16],  // 16-bit inputs        
+        zx, // zero the x input?
+        nx, // negate the x input?
+        zy, // zero the y input?
+        ny, // negate the y input?
+        f,  // compute out = x + y (if 1) or x &amp; y (if 0)
+        no; // negate the out output?
+
+    OUT 
+        out[16], // 16-bit output
+        zr, // 1 if (out == 0), 0 otherwise
+        ng; // 1 if (out &lt; 0),  0 otherwise
+
+    PARTS:
+//-------------------x--------------------------//
+    Mux16(a=x, b=false, sel=zx, out=zxOut); //zx
+
+    Not16(in=zxOut, out=NotzxOut); //nx
+    Mux16(a=zxOut, b=NotzxOut, sel=nx, out=nxOut); //nx
+//-------------------y--------------------------//
+    Mux16(a=y, b=false, sel=zy, out=zyOut); //zy
+
+    Not16(in=zyOut, out=NotzyOut); //ny
+    Mux16(a=zyOut, b=NotzyOut, sel=ny, out=nyOut); //ny
+//-------------------f--------------------------//
+    Add16(a=nxOut, b=nyOut, out=nxOrny); //f=1
+    And16(a=nxOut, b=nyOut, out=nxAndny); //f=0
+
+    Mux16(a=nxAndny, b=nxOrny, sel=f, out=fOut); //f
+//-------------------no--------------------------//
+    Not16(in=fOut, out=NotfOut);
+    Mux16(a=fOut, b=NotfOut, sel=no, out=out, out[0..7]=OutNibble1, out[8..15]=OutNibble2, out[15]=out15);
+
+//-------------------ng and zf--------------------------//
+    And(a=out15, b=true, out=ng); //ng
+
+    Or8Way(in=OutNibble1, out=out1); //zr
+    Or8Way(in=OutNibble2, out=out2); //zr
+    Or(a=out1, b=out2, out=out3); //zr
+    Not(in=out3, out=zr); //zr
+
+
+
+
+}
+</code></pre>
+<h1><a class="header" href="#nand2tetris_p3" id="nand2tetris_p3">nand2tetris_p3</a></h1>
+<h3><a class="header" href="#1-1-bit-register" id="1-1-bit-register">1. 1-Bit Register</a></h3>
+<p>goal is to create a register with two inputs, <code>load</code> and <code>in</code> where the <code>in</code> bit will set the content of the register and the <code>load</code> bit will decide whether we read or write.</p>
+<p>here is the abstraction and implementation:
+<img src="attachments/Clipboard_2020-07-03-20-50-22.png" alt="" /></p>
+<pre><code>// This file is part of www.nand2tetris.org
+// and the book &quot;The Elements of Computing Systems&quot;
+// by Nisan and Schocken, MIT Press.
+// File name: projects/03/a/Bit.hdl
+
+/**
+ * 1-bit register:
+ * If load[t] == 1 then out[t+1] = in[t]
+ *                 else out does not change (out[t+1] = out[t])
+ */
+
+CHIP Bit {
+    IN in, load;
+    OUT out;
+
+    PARTS:
+    Mux(a=DFFOut, b=in, sel=load, out=MuxOut);
+    DFF(in=MuxOut, out=out, out=DFFOut);
+}
+
+</code></pre>
+<h3><a class="header" href="#2-16-bit-register" id="2-16-bit-register">2. 16-bit Register:</a></h3>
+<p>we are just going to stack 1-Bit registers (here is an example below for a 4-Bit register) :
+<img src="attachments/Clipboard_2020-07-03-21-00-40.png" alt="" /></p>
+<pre><code>// This file is part of www.nand2tetris.org
+// and the book &quot;The Elements of Computing Systems&quot;
+// by Nisan and Schocken, MIT Press.
+// File name: projects/03/a/Register.hdl
+
+/**
+ * 16-bit register:
+ * If load[t] == 1 then out[t+1] = in[t]
+ * else out does not change
+ */
+
+CHIP Register {
+    IN in[16], load;
+    OUT out[16];
+
+    PARTS:
+    Bit(in=in[0], load=load, out=out[0]);
+    Bit(in=in[1], load=load, out=out[1]);
+    Bit(in=in[2], load=load, out=out[2]);
+    Bit(in=in[3], load=load, out=out[3]);
+    Bit(in=in[4], load=load, out=out[4]);
+    Bit(in=in[5], load=load, out=out[5]);
+    Bit(in=in[6], load=load, out=out[6]);
+    Bit(in=in[7], load=load, out=out[7]);
+    Bit(in=in[8], load=load, out=out[8]);
+    Bit(in=in[9], load=load, out=out[9]);
+    Bit(in=in[10], load=load, out=out[10]);
+    Bit(in=in[11], load=load, out=out[11]);
+    Bit(in=in[12], load=load, out=out[12]);
+    Bit(in=in[13], load=load, out=out[13]);
+    Bit(in=in[14], load=load, out=out[14]);
+    Bit(in=in[15], load=load, out=out[15]);
+
+    
+}
+
+</code></pre>
+<h3><a class="header" href="#3-ram8" id="3-ram8">3. RAM8</a></h3>
+<p>the circuit speaks for itself :p (note i'm also doing it for 4-bits smh)
+<img src="attachments/Clipboard_2020-07-04-01-00-07.png" alt="" /></p>
+<pre><code>// This file is part of www.nand2tetris.org
+// and the book &quot;The Elements of Computing Systems&quot;
+// by Nisan and Schocken, MIT Press.
+// File name: projects/03/a/RAM8.hdl
+
+/**
+ * Memory of 8 registers, each 16 bit-wide. Out holds the value
+ * stored at the memory location specified by address. If load==1, then 
+ * the in value is loaded into the memory location specified by address 
+ * (the loaded value will be emitted to out from the next time step onward).
+ */
+
+CHIP RAM8 {
+    IN in[16], load, address[3];
+    OUT out[16];
+
+    PARTS:
+    DMux8Way(in=load, sel=address, a=load1, b=load2, c=load3, d=load4, e=load5, f=load6, g=load7, h=load8);
+
+    Register(in=in, load=load1, out=OutRegister1);
+    Register(in=in, load=load2, out=OutRegister2);
+    Register(in=in, load=load3, out=OutRegister3);
+    Register(in=in, load=load4, out=OutRegister4);
+    Register(in=in, load=load5, out=OutRegister5);
+    Register(in=in, load=load6, out=OutRegister6);
+    Register(in=in, load=load7, out=OutRegister7);
+    Register(in=in, load=load8, out=OutRegister8);
+
+    Mux8Way16(a=OutRegister1, b=OutRegister2, c=OutRegister3, d=OutRegister4, e=OutRegister5, f=OutRegister6, g=OutRegister7, h=OutRegister8, sel=address, out=out);
+}
+</code></pre>
+<h3><a class="header" href="#4-ram64ram512-ram5k-and-ram16k" id="4-ram64ram512-ram5k-and-ram16k">4. RAM64,RAM512, RAM5k and RAM16k:</a></h3>
+<p>In these we are going to use the same concept...
+here is the diagram for the simplest of them, the RAM64:
+<img src="attachments/Clipboard_2020-07-05-18-36-34.png" alt="" /></p>
+<pre><code>// This file is part of www.nand2tetris.org
+// and the book &quot;The Elements of Computing Systems&quot;
+// by Nisan and Schocken, MIT Press.
+// File name: projects/03/a/RAM64.hdl
+
+/**
+ * Memory of 64 Registers, each 16 bit-wide. Out holds the value
+ * stored at the memory location specified by address. If load==1, then 
+ * the in value is loaded into the memory location specified by address 
+ * (the loaded value will be emitted to out from the next time step onward).
+ */
+
+CHIP RAM64 {
+    IN in[16], load, address[6];
+    OUT out[16];
+
+    PARTS:
+    DMux8Way(in=load, sel=address[3..5], a=load1, b=load2, c=load3, d=load4, e=load5, f=load6, g=load7, h=load8);
+    
+    RAM8(in=in, load=load1, address=address[0..2], out=OutRAM1); //0..8
+    RAM8(in=in, load=load2, address=address[0..2], out=OutRAM2); //9..16
+    RAM8(in=in, load=load3, address=address[0..2], out=OutRAM3); //17..24
+    RAM8(in=in, load=load4, address=address[0..2], out=OutRAM4); //25..32
+    RAM8(in=in, load=load5, address=address[0..2], out=OutRAM5); //33..40
+    RAM8(in=in, load=load6, address=address[0..2], out=OutRAM6); //41..48
+    RAM8(in=in, load=load7, address=address[0..2], out=OutRAM7); //49..56
+    RAM8(in=in, load=load8, address=address[0..2], out=OutRAM8); //57..64
+
+    Mux8Way16(a=OutRAM1, b=OutRAM2, c=OutRAM3, d=OutRAM4, e=OutRAM5, f=OutRAM6, g=OutRAM7, h=OutRAM8, sel=address[3..5], out=out);
+}
+</code></pre>
+<pre><code>// This file is part of the materials accompanying the book 
+// &quot;The Elements of Computing Systems&quot; by Nisan and Schocken, 
+// MIT Press. Book site: www.idc.ac.il/tecs
+// File name: projects/03/b/RAM512.hdl
+
+/**
+ * Memory of 512 registers, each 16 bit-wide. Out holds the value
+ * stored at the memory location specified by address. If load==1, then 
+ * the in value is loaded into the memory location specified by address 
+ * (the loaded value will be emitted to out from the next time step onward).
+ */
+
+CHIP RAM512 {
+    IN in[16], load, address[9];
+    OUT out[16];
+
+    PARTS:
+	DMux8Way(in=load, sel=address[6..8], a=load1, b=load2, c=load3, d=load4, e=load5, f=load6, g=load7, h=load8);
+    
+    RAM64(in=in, load=load1, address=address[0..5], out=OutRAM1);
+    RAM64(in=in, load=load2, address=address[0..5], out=OutRAM2);
+    RAM64(in=in, load=load3, address=address[0..5], out=OutRAM3);
+    RAM64(in=in, load=load4, address=address[0..5], out=OutRAM4);
+    RAM64(in=in, load=load5, address=address[0..5], out=OutRAM5);
+    RAM64(in=in, load=load6, address=address[0..5], out=OutRAM6);
+    RAM64(in=in, load=load7, address=address[0..5], out=OutRAM7);
+    RAM64(in=in, load=load8, address=address[0..5], out=OutRAM8);
+
+    Mux8Way16(a=OutRAM1, b=OutRAM2, c=OutRAM3, d=OutRAM4, e=OutRAM5, f=OutRAM6, g=OutRAM7, h=OutRAM8, sel=address[6..8], out=out);
+}
+</code></pre>
+<h3><a class="header" href="#5pc" id="5pc">5.PC</a></h3>
+<p>here is the diagram:
+<img src="attachments/Clipboard_2020-07-06-01-31-42.png" alt="" /></p>
+<pre><code>// This file is part of www.nand2tetris.org
+// and the book &quot;The Elements of Computing Systems&quot;
+// by Nisan and Schocken, MIT Press.
+// File name: projects/03/a/PC.hdl
+
+/**
+ * A 16-bit counter with load and reset control bits.
+ * if      (reset[t] == 1) out[t+1] = 0
+ * else if (load[t] == 1)  out[t+1] = in[t]
+ * else if (inc[t] == 1)   out[t+1] = out[t] + 1  (integer addition)
+ * else                    out[t+1] = out[t]
+ */
+
+CHIP PC {
+    IN in[16],load,inc,reset;
+    OUT out[16];
+
+    PARTS:
+
+    Mux16(a=incMuxOut, b=in, sel=load, out=loadMuxOut);
+    
+    Mux16(a=loadMuxOut, b=false, sel=reset, out=resetMuxOut);
+
+  	Register(in=resetMuxOut, load=true, out=regOut, out=out);
+    Inc16(in=regOut, out=incOut);
+
+    Mux16(a=regOut, b=incOut, sel=inc, out=incMuxOut);
+}
+
+</code></pre>
+<h1><a class="header" href="#nand2tetris_w4" id="nand2tetris_w4">nand2tetris_w4</a></h1>
+<h2><a class="header" href="#machine-language" id="machine-language">Machine Language</a></h2>
+<ul>
+<li>Addressing Modes: <img src="attachments/Clipboard_2020-07-06-02-48-11.png" alt="" /></li>
+</ul>
+<h2><a class="header" href="#the-hack-language" id="the-hack-language">The Hack Language:</a></h2>
+<ol>
+<li>Has 3 registers:
+<ol>
+<li>D Register: for data</li>
+<li>A Register: for storing addresses mainly but can also be used for data</li>
+<li>M Register: for accessing Memory[A] (memory location addresses by A Register)</li>
+</ol>
+</li>
+</ol>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        
+
+        
+
+        
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+        
+        <script type="text/javascript">
+        window.addEventListener('load', function() {
+            window.setTimeout(window.print, 100);
+        });
+        </script>
+        
+        
+
+    </body>
+</html>
