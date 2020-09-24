@@ -6,10 +6,21 @@
     <description>Recent content on Yusuf Hegazy</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 18 Aug 2020 13:56:57 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 24 Sep 2020 15:52:30 +0200</lastBuildDate>
     
 	<atom:link href="https://yusufhegazy.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Optimizing Recursion</title>
+      <link>https://yusufhegazy.github.io/posts/lets-talk-recursion/</link>
+      <pubDate>Thu, 24 Sep 2020 15:52:30 +0200</pubDate>
+      
+      <guid>https://yusufhegazy.github.io/posts/lets-talk-recursion/</guid>
+      <description>Recursion is a pretty improtant topic in programming and it&amp;rsquo;s not that hard to grasp or even implement, but how about actually using it correctly?
+In this blog post i will try to explain the basic concept of recursion and then show why recursion can be so inefficient and how to optimize it using Call Tail Optimization!
+Normal Recursion, A Factorial Example Most of us tech nerds have already dealt with the good &amp;lsquo;ol recursion, let&amp;rsquo;s refresh our understanding using the iconic factorial program.</description>
+    </item>
     
     <item>
       <title>GDB Cheatsheet</title>
