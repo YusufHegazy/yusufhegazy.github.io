@@ -17,7 +17,11 @@
             <description>Recursion is a pretty improtant topic in programming and it&amp;rsquo;s not that hard to grasp or even implement, but how about actually using it correctly?
 In this blog post i will try to explain the basic concept of recursion and then show why recursion can be so inefficient and how to optimize it using Call Tail Optimization!
 Normal Recursion, A Factorial Example Most of us tech nerds have already dealt with the good &amp;lsquo;ol recursion, let&amp;rsquo;s refresh our understanding using the iconic factorial program.</description>
-            <content type="html"><![CDATA[<p>Recursion is a pretty improtant topic in programming and it&rsquo;s not that hard to grasp or even implement, but how about <strong>actually using it correctly?</strong></p>
+            <content type="html"><![CDATA[
+    <img src="/img/recursion/recursion.png"  alt="Fractal Tree"  class="center"  style="border-radius: 8px;"  />
+
+
+<p>Recursion is a pretty improtant topic in programming and it&rsquo;s not that hard to grasp or even implement, but how about <strong>actually using it correctly?</strong></p>
 <p>In this blog post i will try to explain the basic concept of recursion and then show why recursion can be so inefficient and how to optimize it using <strong>Call Tail Optimization!</strong></p>
 <h2 id="normal-recursion-a-factorial-example">Normal Recursion, A Factorial Example</h2>
 <p>Most of us tech nerds have already dealt with the good &lsquo;ol recursion, let&rsquo;s refresh our understanding using the iconic factorial program.
