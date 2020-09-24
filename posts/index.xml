@@ -55,6 +55,19 @@ here is the trace of the factorial operation:</p>
 (* <span style="color:#ae81ff">5</span> (* <span style="color:#ae81ff">4</span> <span style="color:#ae81ff">6</span>))
 (* <span style="color:#ae81ff">5</span> <span style="color:#ae81ff">24</span>)
 <span style="color:#ae81ff">120</span>
+</code></pre></div><p>here&rsquo;s the pythonic version for those who are struggling with lisp (it&rsquo;s way easier believe me)</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Python" data-lang="Python">fact(<span style="color:#ae81ff">5</span>)
+<span style="color:#ae81ff">5</span> <span style="color:#f92672">*</span> fact(<span style="color:#ae81ff">4</span>)
+<span style="color:#ae81ff">5</span> <span style="color:#f92672">*</span> (<span style="color:#ae81ff">4</span> <span style="color:#f92672">*</span> fact(<span style="color:#ae81ff">3</span>))
+<span style="color:#ae81ff">5</span> <span style="color:#f92672">*</span> (<span style="color:#ae81ff">4</span> <span style="color:#f92672">*</span> (<span style="color:#ae81ff">3</span> <span style="color:#f92672">*</span> fact(<span style="color:#ae81ff">2</span>)))
+<span style="color:#ae81ff">5</span> <span style="color:#f92672">*</span> (<span style="color:#ae81ff">4</span> <span style="color:#f92672">*</span> (<span style="color:#ae81ff">3</span> <span style="color:#f92672">*</span> (<span style="color:#ae81ff">2</span> <span style="color:#f92672">*</span> fact(<span style="color:#ae81ff">1</span>))))
+<span style="color:#ae81ff">5</span> <span style="color:#f92672">*</span> (<span style="color:#ae81ff">4</span> <span style="color:#f92672">*</span> (<span style="color:#ae81ff">3</span> <span style="color:#f92672">*</span> (<span style="color:#ae81ff">2</span> <span style="color:#f92672">*</span> (<span style="color:#ae81ff">1</span> <span style="color:#f92672">*</span> fact(<span style="color:#ae81ff">0</span>)))))
+<span style="color:#ae81ff">5</span> <span style="color:#f92672">*</span> (<span style="color:#ae81ff">4</span> <span style="color:#f92672">*</span> (<span style="color:#ae81ff">3</span> <span style="color:#f92672">*</span> (<span style="color:#ae81ff">2</span> <span style="color:#f92672">*</span> (<span style="color:#ae81ff">1</span> <span style="color:#f92672">*</span> <span style="color:#ae81ff">1</span>))))
+<span style="color:#ae81ff">5</span> <span style="color:#f92672">*</span> (<span style="color:#ae81ff">4</span> <span style="color:#f92672">*</span> (<span style="color:#ae81ff">3</span> <span style="color:#f92672">*</span> (<span style="color:#ae81ff">2</span> <span style="color:#f92672">*</span> <span style="color:#ae81ff">1</span>)))
+<span style="color:#ae81ff">5</span> <span style="color:#f92672">*</span> (<span style="color:#ae81ff">4</span> <span style="color:#f92672">*</span> (<span style="color:#ae81ff">3</span> <span style="color:#f92672">*</span> <span style="color:#ae81ff">2</span>))
+<span style="color:#ae81ff">5</span> <span style="color:#f92672">*</span> (<span style="color:#ae81ff">4</span> <span style="color:#f92672">*</span> <span style="color:#ae81ff">6</span>)
+<span style="color:#ae81ff">5</span> <span style="color:#f92672">*</span> <span style="color:#ae81ff">24</span>
+<span style="color:#ae81ff">120</span>
 </code></pre></div><p>Did you figure out the flaw of our simple recursion implementation yet?</p>
 <p>It&rsquo;s pretty simple, the way we expand the factorial on each iteration so that it grows and keeps growing until we fully expand it is just so inefficient and wastes memory space.</p>
 <p>The waste of memory space comes from the fact that each call of <code>(fact x)</code> will allocate a new stack frame to store its data, so we have used around 6 stack frames for this simple calculation, allocating and popping stack frames is a relatively intensive operation for the CPU.</p>
@@ -69,6 +82,14 @@ here is the trace of the factorial operation:</p>
   (<span style="color:#a6e22e">fact-tail</span> (- x <span style="color:#ae81ff">1</span>) (* x accum))))
 
 (<span style="color:#66d9ef">define </span>(<span style="color:#a6e22e">fact</span> x) (<span style="color:#a6e22e">fact-tail</span> x <span style="color:#ae81ff">1</span>))
+</code></pre></div><h3 id="pythonic-version">Pythonic version:</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Python" data-lang="Python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">factTail</span>(x, accum):
+	<span style="color:#66d9ef">if</span> (x <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>):
+		<span style="color:#66d9ef">return</span> accum
+	<span style="color:#66d9ef">else</span>:
+		<span style="color:#66d9ef">return</span> factTail(x<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>, x<span style="color:#f92672">*</span>accum)
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">fact</span>(x):
+	<span style="color:#66d9ef">return</span> factTail(x, <span style="color:#ae81ff">1</span>)
 </code></pre></div><p>what we did in that snippet above is pretty simple, we just split the work across two functions, the first function <code>(fact-tail x accum)</code> will iterate and the second function <code>(fact x)</code> will call the first function and returns the value of each iteration (we have also moved the multiplication operation to it&rsquo;s own variable) so we basically have no extra operations going on, <em>in fact calling <code>(fact 0)</code> is now the same as calling <code>(fact 10000)</code> in terms of memory size.</em></p>
 <p>let&rsquo;s step through each iteration and see for ourselves how great is Tail Recursion:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Scheme" data-lang="Scheme">(<span style="color:#a6e22e">fact</span> <span style="color:#ae81ff">5</span>)
@@ -79,11 +100,20 @@ here is the trace of the factorial operation:</p>
 (<span style="color:#a6e22e">fact-tail</span> <span style="color:#ae81ff">1</span> <span style="color:#ae81ff">120</span>)
 (<span style="color:#a6e22e">fact-tail</span> <span style="color:#ae81ff">0</span> <span style="color:#ae81ff">120</span>)
 <span style="color:#ae81ff">120</span>
+</code></pre></div><p>Pythonic Version:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Python" data-lang="Python">fact(<span style="color:#ae81ff">5</span>)
+factTail(<span style="color:#ae81ff">5</span>, <span style="color:#ae81ff">1</span>)
+factTail(<span style="color:#ae81ff">4</span>, <span style="color:#ae81ff">5</span>)
+factTail(<span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">20</span>)
+factTail(<span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">60</span>)
+factTail(<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">120</span>)
+factTail(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">120</span>)
 </code></pre></div><p>is this even recursion anymore, that&rsquo;s just <strong>fancy iteration!</strong></p>
 <p>we have used recursion in such a way that we store all the data to perform our evalutaion in each individual reccured call!
 All Hail Tail Call Optimization!</p>
 <h2 id="more-tail-recursion">More Tail Recursion!</h2>
 <p>here is one more example with the infamous fibonacci function in both normal Recursion and then Tail Recursion:</p>
+<p><em>(you try to implement it in python this time :p)</em></p>
 <h3 id="normal-recursion">Normal Recursion</h3>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Scheme" data-lang="Scheme">(<span style="color:#66d9ef">define </span>(<span style="color:#a6e22e">fib</span> x)
   (<span style="color:#66d9ef">cond </span>((= x <span style="color:#ae81ff">0</span>) <span style="color:#ae81ff">0</span>)
