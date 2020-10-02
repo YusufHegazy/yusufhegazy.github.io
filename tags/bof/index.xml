@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>BOF on Yusuf Hegazy</title>
-    <link>https://yusufhegazy.github.io/tags/bof/</link>
+    <link>https://yusufhegazy.com/tags/bof/</link>
     <description>Recent content in BOF on Yusuf Hegazy</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 18 Aug 2020 13:56:57 +0000</lastBuildDate><atom:link href="https://yusufhegazy.github.io/tags/bof/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 18 Aug 2020 13:56:57 +0000</lastBuildDate><atom:link href="https://yusufhegazy.com/tags/bof/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>GDB Cheatsheet</title>
-      <link>https://yusufhegazy.github.io/posts/gdb-cheatsheet/</link>
+      <link>https://yusufhegazy.com/posts/gdb-cheatsheet/</link>
       <pubDate>Tue, 18 Aug 2020 13:56:57 +0000</pubDate>
       
-      <guid>https://yusufhegazy.github.io/posts/gdb-cheatsheet/</guid>
+      <guid>https://yusufhegazy.com/posts/gdb-cheatsheet/</guid>
       <description>Data:
  disas main to disassemble function x/50wx $esp examine 50 words in hex starting from esp x/50i $eip examine 50 instructions from eip x anything examine address and show it’s contents info variables varname will show any variable address (for global!) info functions to list all functions info frame shows the saved RTN address under &amp;ldquo;saved eip&amp;rdquo; info proc map shows memory map ctx shows general info about everything (works in gef only)    Flow</description>
     </item>
