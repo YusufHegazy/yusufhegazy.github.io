@@ -6,10 +6,16 @@
     <description>Recent content on Yusuf Hegazy</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 24 Sep 2020 15:52:30 +0200</lastBuildDate>
-    
-	<atom:link href="https://yusufhegazy.github.io/index.xml" rel="self" type="application/rss+xml" />
-    
+    <lastBuildDate>Sun, 27 Sep 2020 23:27:38 +0200</lastBuildDate><atom:link href="https://yusufhegazy.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>My Favorite Linux Distro</title>
+      <link>https://yusufhegazy.github.io/posts/distro/</link>
+      <pubDate>Sun, 27 Sep 2020 23:27:38 +0200</pubDate>
+      
+      <guid>https://yusufhegazy.github.io/posts/distro/</guid>
+      <description>To Linux or not to Linux Since a couple months ago, i have decided to try and switch fully to linux and ditch that piece of junk they call windows.
+Now, that&amp;rsquo;s a bit misleading since i have been using windows for the past 12-13 years of my keyboard smashing journey but i don&amp;rsquo;t really feel any guilt doing this, in fact windows is nothing more of a bottleneck to me or so have i figured later.</description>
+    </item>
     
     <item>
       <title>Optimizing Recursion</title>

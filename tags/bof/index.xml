@@ -6,11 +6,7 @@
     <description>Recent content in BOF on Yusuf Hegazy</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 18 Aug 2020 13:56:57 +0000</lastBuildDate>
-    
-	<atom:link href="https://yusufhegazy.github.io/tags/bof/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Tue, 18 Aug 2020 13:56:57 +0000</lastBuildDate><atom:link href="https://yusufhegazy.github.io/tags/bof/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>GDB Cheatsheet</title>
       <link>https://yusufhegazy.github.io/posts/gdb-cheatsheet/</link>

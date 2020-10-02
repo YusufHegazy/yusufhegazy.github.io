@@ -6,10 +6,15 @@
     <description>Recent content in Tags on Yusuf Hegazy</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 18 Aug 2020 13:56:57 +0000</lastBuildDate>
-    
-	<atom:link href="https://yusufhegazy.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
-    
+    <lastBuildDate>Sun, 27 Sep 2020 23:27:38 +0200</lastBuildDate><atom:link href="https://yusufhegazy.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>linux</title>
+      <link>https://yusufhegazy.github.io/tags/linux/</link>
+      <pubDate>Sun, 27 Sep 2020 23:27:38 +0200</pubDate>
+      
+      <guid>https://yusufhegazy.github.io/tags/linux/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>BOF</title>

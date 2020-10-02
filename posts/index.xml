@@ -5,8 +5,48 @@
         <description>Recent content in Posts on Yusuf Hegazy</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
-        <lastBuildDate>Thu, 24 Sep 2020 15:52:30 +0200</lastBuildDate>
+        <lastBuildDate>Sun, 27 Sep 2020 23:27:38 +0200</lastBuildDate>
         <atom:link href="https://yusufhegazy.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+        
+        <item>
+            <title>My Favorite Linux Distro</title>
+            <link>https://yusufhegazy.github.io/posts/distro/</link>
+            <pubDate>Sun, 27 Sep 2020 23:27:38 +0200</pubDate>
+            
+            <guid>https://yusufhegazy.github.io/posts/distro/</guid>
+            <description>To Linux or not to Linux Since a couple months ago, i have decided to try and switch fully to linux and ditch that piece of junk they call windows.
+Now, that&amp;rsquo;s a bit misleading since i have been using windows for the past 12-13 years of my keyboard smashing journey but i don&amp;rsquo;t really feel any guilt doing this, in fact windows is nothing more of a bottleneck to me or so have i figured later.</description>
+            <content type="html"><![CDATA[<h2 id="to-linux-or-not-to-linux">To Linux or not to Linux</h2>
+<p>Since a couple months ago, i have decided to try and switch fully to linux and ditch that piece of junk they call windows.</p>
+<p>Now, that&rsquo;s a bit misleading since i have been using windows for the past 12-13 years of my keyboard smashing journey but i don&rsquo;t really feel any guilt doing this, in fact windows is nothing more of a bottleneck to me <em>or so have i figured later</em>.</p>
+<p>enough ranting, maybe this needs it&rsquo;s own blog post after all <em>or maybe not</em>, it&rsquo;s a highly controversial topic whatsoever. Just believe me windows is pure evil.</p>
+<h2 id="settling-on-an-os">Settling on an OS</h2>
+<p>I have tried tons of Linux distrois but i always kept jumping from one to the next, never settled on a distro, at first i wanted to use it mainly for my cybersecurity hobby so i thought Kali would be a pretty nice choice&hellip;</p>
+<p>but guess what, it wasn&rsquo;t&hellip;</p>
+<p>I really think that kali is a pretty good OS but not that good for using as a daily driver system, it&rsquo;s just bloated with a tons of security tools that you will never get chance to use and maybe you don&rsquo;t even know of their existence.</p>
+<p>so i started trying different operating systems ranging from the classic debian to using arch linux which actually was the thing i liked the most!</p>
+<h2 id="why-arch">Why Arch</h2>
+<p>beside the fact that you get to customize your operating system to the max level, you also get the Arch User Repository (AUR) which contains 64,441 packages as of writing this, it&rsquo;s a rolling release distro which basically gives you gradual little updates as they are released unlike other stable release distro that give you a bulky big update that sometimes forces you to reinstall your os.</p>
+<p>Arch is a bit tougher than any other OS though, since they don&rsquo;t provide any graphical installer like most distros and you have to configure it yourself from the groundup, a pretty awesome arch based distro is <strong>Manjaro</strong> which is bascially a simpified version of arch with all Arch&rsquo;s perks and that&rsquo;s what i have setteled on!</p>
+<h2 id="manjaro-for-cybersecurity">Manjaro for Cybersecurity</h2>
+<p>So we now have an arch distro that is lightweigt, fully customizable and contains an awesome package manager with the arch user repositoty, and that&rsquo;s not even the end! we can add to our manjaro setup <a href="https://blackarch.org/downloads.html#install-repo">the blackarch repo</a> which contains as of writing this article a whooping 7030 security tool ready for installing at your fingertips!</p>
+<p>now we can customize our own distro and bundle it with the tools we only need!</p>
+<h2 id="the-skys-your-limit">The Sky&rsquo;s your limit</h2>
+<p>Manjaro comes in differnt desktop enviroments, but i have actually tried all of them inclduing XFCE, KDE and MATE and the one that sucked the least was XFCE&hellip;</p>
+<p>but that was until i discovered the heaven of tiling window managers, which basically can speed up your keyboard smashing habits by 10x if you invested the little time into making it your own!</p>
+<p>here are some pics of my Manjaro boxes!</p>
+<p>
+    <img src="/img/distro/screenie1.png"  alt="Fractal Tree"  class="center"  style="border-radius: 8px;"  />
+
+
+<a href="https://www.reddit.com/r/unixporn/comments/irhskz/i3_the_arctic/">config</a></p>
+<p>
+    <img src="/img/distro/screenie2.jpeg"  alt="Fractal Tree"  class="center"  style="border-radius: 8px;"  />
+
+
+<a href="https://www.reddit.com/r/unixporn/comments/ixexgc/i3gaps_someone_paid_my_bail_so_now_we_have/">config</a></p>
+]]></content>
+        </item>
         
         <item>
             <title>Optimizing Recursion</title>
@@ -82,7 +122,7 @@ here is the trace of the factorial operation:</p>
   (<span style="color:#a6e22e">fact-tail</span> (- x <span style="color:#ae81ff">1</span>) (* x accum))))
 
 (<span style="color:#66d9ef">define </span>(<span style="color:#a6e22e">fact</span> x) (<span style="color:#a6e22e">fact-tail</span> x <span style="color:#ae81ff">1</span>))
-</code></pre></div><p>Pythonic version:</p>
+</code></pre></div><h3 id="pythonic-version">Pythonic version:</h3>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Python" data-lang="Python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">factTail</span>(x, accum):
 	<span style="color:#66d9ef">if</span> (x <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>):
 		<span style="color:#66d9ef">return</span> accum
@@ -238,7 +278,7 @@ Non<span style="color:#f92672">-</span>debugging symbols:
 <li>response function maybe vulnerable to a format string vulnerability (since there is a printf call)</li>
 <li>the flaggy function is a dead code, our goal is to call it.</li>
 </ul>
-<p>so let&rsquo;s start by running some input on the binary, let&rsquo;s test with a couple of <code>%x</code>'s:</p>
+<p>so let&rsquo;s start by running some input on the binary, let&rsquo;s test with a couple of <code>%x</code>&rsquo;s:</p>
 <pre><code>hegz@hegzbox:~/ractf/Not_Really_AI$ ./nra
 How are you finding RACTF?
 %x %x %x %x    
@@ -345,7 +385,7 @@ using any calculator or just python, we can calculate the integer value of any h
 <hr>
 <ol start="3">
 <li><code>[Address_of_puts entry number on the stack]:</code>
-to calculate the offset of puts in our printf stack leak, we use an Egg i.e: AAAA, and follow it with some <code>%x</code>'s until we can locate it&rsquo;s offset.</li>
+to calculate the offset of puts in our printf stack leak, we use an Egg i.e: AAAA, and follow it with some <code>%x</code>&rsquo;s until we can locate it&rsquo;s offset.</li>
 </ol>
 <pre><code>hegz@hegzbox:~/ractf/Not_Really_AI$ ./nra 
 How are you finding RACTF?
