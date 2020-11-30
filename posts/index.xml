@@ -9,7 +9,7 @@
         <atom:link href="https://yusufhegazy.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
         
         <item>
-            <title>Buffer Overflows for Normies</title>
+            <title>Buffer Overflows for Newbies</title>
             <link>https://yusufhegazy.github.io/posts/bof-for-normies/</link>
             <pubDate>Mon, 30 Nov 2020 02:46:12 +0200</pubDate>
             
