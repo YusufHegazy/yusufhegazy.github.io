@@ -16,7 +16,11 @@
             <guid>https://yusufhegazy.github.io/posts/bof-for-normies/</guid>
             <description>What is a Buffer anyway? We can think of buffers as containers to hold our data for later use, It&amp;rsquo;s not really something specific to computer science; in fact, we have buffers in electronics, mechanics, chemistry and even politics! We can say that the word buffer is just a fancy name for a placeholder (temporary storage)!
 Buffer in Computer Science Now, it&amp;rsquo;s time to get more technical and get to know buffers more in computer science!</description>
-            <content type="html"><![CDATA[<h2 id="what-is-a-buffer-anyway">What is a Buffer anyway?</h2>
+            <content type="html"><![CDATA[
+    <img src="/img/bof-normies/header.png"  alt="Fractal Tree"  class="center"  style="border-radius: 8px;"  />
+
+
+<h2 id="what-is-a-buffer-anyway">What is a Buffer anyway?</h2>
 <p>We can think of buffers as containers to hold our data for later use, It&rsquo;s not really something specific to computer science; in fact, we have buffers in electronics, mechanics, chemistry and even politics!
 We can say that the word buffer is just a fancy name for a placeholder (temporary storage)!</p>
 <h2 id="buffer-in-computer-science">Buffer in Computer Science</h2>
