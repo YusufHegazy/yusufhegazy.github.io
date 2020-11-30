@@ -6,7 +6,21 @@
     <description>Recent content in BOF on Yusuf Hegazy</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 18 Aug 2020 13:56:57 +0000</lastBuildDate><atom:link href="https://yusufhegazy.github.io/tags/bof/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 30 Nov 2020 02:46:12 +0200</lastBuildDate>
+    
+	<atom:link href="https://yusufhegazy.github.io/tags/bof/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Buffer Overflows for Normies</title>
+      <link>https://yusufhegazy.github.io/posts/bof-for-normies/</link>
+      <pubDate>Mon, 30 Nov 2020 02:46:12 +0200</pubDate>
+      
+      <guid>https://yusufhegazy.github.io/posts/bof-for-normies/</guid>
+      <description>What is a Buffer anyway? We can think of buffers as containers to hold our data for later use, It&amp;rsquo;s not really something specific to computer science; in fact, we have buffers in electronics, mechanics, chemistry and even politics! We can say that the word buffer is just a fancy name for a placeholder (temporary storage)!
+Buffer in Computer Science Now, it&amp;rsquo;s time to get more technical and get to know buffers more in computer science!</description>
+    </item>
+    
     <item>
       <title>GDB Cheatsheet</title>
       <link>https://yusufhegazy.github.io/posts/gdb-cheatsheet/</link>

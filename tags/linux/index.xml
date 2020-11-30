@@ -6,7 +6,11 @@
     <description>Recent content in linux on Yusuf Hegazy</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 27 Sep 2020 23:27:38 +0200</lastBuildDate><atom:link href="https://yusufhegazy.github.io/tags/linux/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 27 Sep 2020 23:27:38 +0200</lastBuildDate>
+    
+	<atom:link href="https://yusufhegazy.github.io/tags/linux/index.xml" rel="self" type="application/rss+xml" />
+    
+    
     <item>
       <title>My Favorite Linux Distro</title>
       <link>https://yusufhegazy.github.io/posts/distro/</link>
