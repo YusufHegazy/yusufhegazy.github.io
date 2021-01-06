@@ -1,65 +1,28 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Yusuf Hegazy</title>
-    <link>https://yusufhegazy.github.io/</link>
-    <description>Recent content on Yusuf Hegazy</description>
+    <title>Tags on Yusuf Hegazy</title>
+    <link>https://yusufhegazy.github.io/tags/</link>
+    <description>Recent content in Tags on Yusuf Hegazy</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 30 Nov 2020 02:46:12 +0200</lastBuildDate>
-    
-	<atom:link href="https://yusufhegazy.github.io/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Mon, 30 Nov 2020 02:46:12 +0200</lastBuildDate><atom:link href="https://yusufhegazy.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Buffer Overflows for Newbies</title>
-      <link>https://yusufhegazy.github.io/posts/bof-for-normies/</link>
+      <title>BOF</title>
+      <link>https://yusufhegazy.github.io/tags/bof/</link>
       <pubDate>Mon, 30 Nov 2020 02:46:12 +0200</pubDate>
       
-      <guid>https://yusufhegazy.github.io/posts/bof-for-normies/</guid>
-      <description>What is a Buffer anyway? We can think of buffers as containers to hold our data for later use, it&amp;rsquo;s not really something specific to computer science; In fact, we have buffers in electronics, mechanics, chemistry and even politics! We can say that the word buffer is just a fancy name for a placeholder (temporary storage)!
-Buffer in Computer Science Now, it&amp;rsquo;s time to get more technical and get to know buffers more in computer science!</description>
+      <guid>https://yusufhegazy.github.io/tags/bof/</guid>
+      <description></description>
     </item>
     
     <item>
-      <title>My Favorite Linux Distro</title>
-      <link>https://yusufhegazy.github.io/posts/distro/</link>
+      <title>linux</title>
+      <link>https://yusufhegazy.github.io/tags/linux/</link>
       <pubDate>Sun, 27 Sep 2020 23:27:38 +0200</pubDate>
       
-      <guid>https://yusufhegazy.github.io/posts/distro/</guid>
-      <description>To Linux or not to Linux Since a couple months ago, i have decided to try and switch fully to linux and ditch that piece of junk they call windows.
-Now, that&amp;rsquo;s a bit misleading since i have been using windows for the past 12-13 years of my keyboard smashing journey but i don&amp;rsquo;t really feel any guilt doing this, in fact windows is nothing more of a bottleneck to me or so have i figured later.</description>
-    </item>
-    
-    <item>
-      <title>Optimizing Recursion</title>
-      <link>https://yusufhegazy.github.io/posts/lets-talk-recursion/</link>
-      <pubDate>Thu, 24 Sep 2020 15:52:30 +0200</pubDate>
-      
-      <guid>https://yusufhegazy.github.io/posts/lets-talk-recursion/</guid>
-      <description>Recursion is a pretty improtant topic in programming and it&amp;rsquo;s not that hard to grasp or even implement, but how about actually using it correctly?
-In this blog post i will try to explain the basic concept of recursion and then show why recursion can be so inefficient and how to optimize it using Call Tail Optimization!
-Normal Recursion, A Factorial Example Most of us tech nerds have already dealt with the good &amp;lsquo;ol recursion, let&amp;rsquo;s refresh our understanding using the iconic factorial program.</description>
-    </item>
-    
-    <item>
-      <title>GDB Cheatsheet</title>
-      <link>https://yusufhegazy.github.io/posts/gdb-cheatsheet/</link>
-      <pubDate>Tue, 18 Aug 2020 13:56:57 +0000</pubDate>
-      
-      <guid>https://yusufhegazy.github.io/posts/gdb-cheatsheet/</guid>
-      <description>Data:
- disas main to disassemble function x/50wx $esp examine 50 words in hex starting from esp x/50i $eip examine 50 instructions from eip x anything examine address and show it’s contents info variables varname will show any variable address (for global!) info functions to list all functions info frame shows the saved RTN address under &amp;ldquo;saved eip&amp;rdquo; info proc map shows memory map ctx shows general info about everything (works in gef only)    Flow</description>
-    </item>
-    
-    <item>
-      <title>Not Really AI (Pwn - 200 Points)</title>
-      <link>https://yusufhegazy.github.io/posts/ctf-writeup/</link>
-      <pubDate>Tue, 09 Jun 2020 17:49:21 +0000</pubDate>
-      
-      <guid>https://yusufhegazy.github.io/posts/ctf-writeup/</guid>
-      <description>Little Background This is a Binary exploitaion challenge, based around a format string vulnerability.
- Misusage of the libc printf() function can lead to serious information leakage and even code execution. when we pass one argument (for example printf(foo)) we can:  leak stack addresses using %x or %p format specifiers. overwrite any pointer&amp;rsquo;s value using %n specifier (note that we can&amp;rsquo;t overwrite plain stack addresses as the %n format specifier can only overwrite by reference and not by value)    For more information on format strings please check this awesome resource</description>
+      <guid>https://yusufhegazy.github.io/tags/linux/</guid>
+      <description></description>
     </item>
     
   </channel>

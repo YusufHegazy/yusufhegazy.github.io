@@ -36,13 +36,14 @@
 <meta itemprop="name" content="Not Really AI (Pwn - 200 Points)">
 <meta itemprop="description" content="Little Background This is a Binary exploitaion challenge, based around a format string vulnerability.
  Misusage of the libc printf() function can lead to serious information leakage and even code execution. when we pass one argument (for example printf(foo)) we can:  leak stack addresses using %x or %p format specifiers. overwrite any pointer&rsquo;s value using %n specifier (note that we can&rsquo;t overwrite plain stack addresses as the %n format specifier can only overwrite by reference and not by value)    For more information on format strings please check this awesome resource">
-<meta itemprop="dateModified" content="2020-06-09T17:49:21&#43;00:00" />
+<meta itemprop="dateModified" content="2020-06-09T17:49:21+00:00" />
 <meta itemprop="wordCount" content="1054">
 <meta itemprop="image" content="https://yusufhegazy.github.io/"/>
 
 
 
 <meta itemprop="keywords" content="" />
+
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://yusufhegazy.github.io/"/>
 
@@ -209,7 +210,7 @@ Non<span style="color:#f92672">-</span>debugging symbols:
 <li>response function maybe vulnerable to a format string vulnerability (since there is a printf call)</li>
 <li>the flaggy function is a dead code, our goal is to call it.</li>
 </ul>
-<p>so let&rsquo;s start by running some input on the binary, let&rsquo;s test with a couple of <code>%x</code>'s:</p>
+<p>so let&rsquo;s start by running some input on the binary, let&rsquo;s test with a couple of <code>%x</code>&rsquo;s:</p>
 <pre><code>hegz@hegzbox:~/ractf/Not_Really_AI$ ./nra
 How are you finding RACTF?
 %x %x %x %x    
@@ -316,7 +317,7 @@ using any calculator or just python, we can calculate the integer value of any h
 <hr>
 <ol start="3">
 <li><code>[Address_of_puts entry number on the stack]:</code>
-to calculate the offset of puts in our printf stack leak, we use an Egg i.e: AAAA, and follow it with some <code>%x</code>'s until we can locate it&rsquo;s offset.</li>
+to calculate the offset of puts in our printf stack leak, we use an Egg i.e: AAAA, and follow it with some <code>%x</code>&rsquo;s until we can locate it&rsquo;s offset.</li>
 </ol>
 <pre><code>hegz@hegzbox:~/ractf/Not_Really_AI$ ./nra 
 How are you finding RACTF?
@@ -495,7 +496,7 @@ a lot of blank spaces will be printed, and eventually our flag&hellip;
                 <footer class="footer">
     <div class="footer__inner">
         <div class="footer__content">
-            <span>&copy; 2020</span>
+            <span>&copy; 2021</span>
             
             
             <span> <a href="https://yusufhegazy.github.io/posts/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a></span>
