@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="author" content="">
 <meta name="description" content="Some background This is a challenge from 0xl4ugh CTF which was inspired by RACTF&amp;rsquo;s not really ai challenge, It was the first ever pwn challenge I solve in a CTF alone and I really liked it hence I wanted to bring it to this CTF (you can even check my poorly written writeup for that challenge which I refuse to remove as It&amp;rsquo;s pretty awesome to look back and see how much did we grow)." />
-<meta name="keywords" content=", untagged" />
+<meta name="keywords" content=", bof" />
 <meta name="robots" content="noodp" />
 <meta name="theme-color" content="" />
 <link rel="canonical" href="https://hegz.me/writeups/trigger_happy/" />
@@ -36,12 +36,12 @@
 <meta itemprop="description" content="Some background This is a challenge from 0xl4ugh CTF which was inspired by RACTF&rsquo;s not really ai challenge, It was the first ever pwn challenge I solve in a CTF alone and I really liked it hence I wanted to bring it to this CTF (you can even check my poorly written writeup for that challenge which I refuse to remove as It&rsquo;s pretty awesome to look back and see how much did we grow).">
 <meta itemprop="datePublished" content="2021-01-16T16:33:49+02:00" />
 <meta itemprop="dateModified" content="2021-01-16T16:33:49+02:00" />
-<meta itemprop="wordCount" content="1386">
+<meta itemprop="wordCount" content="1390">
 <meta itemprop="image" content="https://hegz.me/"/>
 
 
 
-<meta itemprop="keywords" content="untagged," />
+<meta itemprop="keywords" content="bof," />
 
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://hegz.me/"/>
@@ -151,7 +151,7 @@ if (!doNotTrack) {
             <div class="post-content">
                 <h2 id="some-background">Some background</h2>
 <p>This is a challenge from 0xl4ugh CTF which was inspired by RACTF&rsquo;s not really ai challenge, It was the first ever pwn challenge I solve in a CTF alone and I really liked it hence I wanted to bring it to this CTF (you can even check my poorly written writeup for that challenge which I refuse to remove as It&rsquo;s pretty awesome to look back and see how much did we grow).</p>
-<p>You can check my video on format string vulnerabilies as a refresher for these types of attacks.
+<p>You can check my video on format string vulnerabilies as a refresher for these types of attacks (It&rsquo;s in arabic tho).
 
 <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
   <iframe src="https://www.youtube.com/embed/EqeRGqnaoi4" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
@@ -190,7 +190,7 @@ I am glad you
 We wish you luck!
 </code></pre></div><p>Voila, seems like we found a format string vulnerable pivot which we can use to leak stack values or even write to pointers on the stack.
 We can further confirm our assumptions by checking the disassembly of our binary for a printf() call with only one argument, but we are going to skip this step.</p>
-<p>One more thing we are going to do is locating the index of the stack entry we control with the printf function, a simple way to do this is by placing an egg and following it with a couple of %x&rsquo;s until we can see our egg in the leaked address and then we can get its index.</p>
+<p>One more thing we are going to do is locating the index of the stack entry we control with the printf function, a simple way to do this is by placing an egg and following it with a couple of %x&rsquo;s until we can see our egg in the leaked addresses and then we can get its index.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ ./trigger_happy
 Do you like 0xL4ugh CTF?
 AAAA %x %x %x %x %x %x %x %x 
@@ -377,7 +377,7 @@ payload <span style="color:#f92672">=</span> fmtstr_payload(OFFSET, {puts: win},
     <p>
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line></svg>
 
-        <span class="tag"><a href="https://hegz.me/tags/untagged/">untagged</a></span>
+        <span class="tag"><a href="https://hegz.me/tags/bof/">bof</a></span>
         
     </p>
 
