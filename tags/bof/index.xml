@@ -2,27 +2,27 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>BOF on Yusuf Hegazy</title>
-    <link>https://yusufhegazy.github.io/tags/bof/</link>
+    <link>https://hegz.me/tags/bof/</link>
     <description>Recent content in BOF on Yusuf Hegazy</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 30 Nov 2020 02:46:12 +0200</lastBuildDate><atom:link href="https://yusufhegazy.github.io/tags/bof/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 30 Nov 2020 02:46:12 +0200</lastBuildDate><atom:link href="https://hegz.me/tags/bof/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Buffer Overflows for Newbies</title>
-      <link>https://yusufhegazy.github.io/posts/bof-for-normies/</link>
+      <link>https://hegz.me/posts/bof-for-normies/</link>
       <pubDate>Mon, 30 Nov 2020 02:46:12 +0200</pubDate>
       
-      <guid>https://yusufhegazy.github.io/posts/bof-for-normies/</guid>
+      <guid>https://hegz.me/posts/bof-for-normies/</guid>
       <description>What is a Buffer anyway? We can think of buffers as containers to hold our data for later use, it&amp;rsquo;s not really something specific to computer science; In fact, we have buffers in electronics, mechanics, chemistry and even politics! We can say that the word buffer is just a fancy name for a placeholder (temporary storage)!
 Buffer in Computer Science Now, it&amp;rsquo;s time to get more technical and get to know buffers more in computer science!</description>
     </item>
     
     <item>
       <title>GDB Cheatsheet</title>
-      <link>https://yusufhegazy.github.io/posts/gdb-cheatsheet/</link>
+      <link>https://hegz.me/posts/gdb-cheatsheet/</link>
       <pubDate>Tue, 18 Aug 2020 13:56:57 +0000</pubDate>
       
-      <guid>https://yusufhegazy.github.io/posts/gdb-cheatsheet/</guid>
+      <guid>https://hegz.me/posts/gdb-cheatsheet/</guid>
       <description>Data:
  disas main to disassemble function x/50wx $esp examine 50 words in hex starting from esp x/50i $eip examine 50 instructions from eip x anything examine address and show it’s contents info variables varname will show any variable address (for global!) info functions to list all functions info frame shows the saved RTN address under &amp;ldquo;saved eip&amp;rdquo; info proc map shows memory map ctx shows general info about everything (works in gef only)    Flow</description>
     </item>

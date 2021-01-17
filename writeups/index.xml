@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Writeups on Yusuf Hegazy</title>
+    <link>https://hegz.me/writeups/</link>
+    <description>Recent content in Writeups on Yusuf Hegazy</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 16 Jan 2021 16:33:49 +0200</lastBuildDate><atom:link href="https://hegz.me/writeups/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Trigger Happy (0xL4ugh CTF)</title>
+      <link>https://hegz.me/writeups/trigger_happy/</link>
+      <pubDate>Sat, 16 Jan 2021 16:33:49 +0200</pubDate>
+      
+      <guid>https://hegz.me/writeups/trigger_happy/</guid>
+      <description>Some background This is a challenge from 0xl4ugh CTF which was inspired by RACTF&amp;rsquo;s not really ai challenge, It was the first ever pwn challenge I solve in a CTF alone and I really liked it hence I wanted to bring it to this CTF (you can even check my poorly written writeup for that challenge which I refuse to remove as It&amp;rsquo;s pretty awesome to look back and see how much did we grow).</description>
+    </item>
+    
+    <item>
+      <title>Not Really AI (RA CTF)</title>
+      <link>https://hegz.me/writeups/notreallyai/</link>
+      <pubDate>Tue, 09 Jun 2020 17:49:21 +0000</pubDate>
+      
+      <guid>https://hegz.me/writeups/notreallyai/</guid>
+      <description>Little Background This is a Binary exploitaion challenge, based around a format string vulnerability.
+ Misusage of the libc printf() function can lead to serious information leakage and even code execution. when we pass one argument (for example printf(foo)) we can:  leak stack addresses using %x or %p format specifiers. overwrite any pointer&amp;rsquo;s value using %n specifier (note that we can&amp;rsquo;t overwrite plain stack addresses as the %n format specifier can only overwrite by reference and not by value)    For more information on format strings please check this awesome resource</description>
+    </item>
+    
+  </channel>
+</rss>

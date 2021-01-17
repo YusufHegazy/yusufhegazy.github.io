@@ -2,9 +2,9 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Blog on Yusuf Hegazy</title>
-    <link>https://yusufhegazy.github.io/blog/</link>
+    <link>https://hegz.me/blog/</link>
     <description>Recent content in Blog on Yusuf Hegazy</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language><atom:link href="https://yusufhegazy.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
+    <language>en-us</language><atom:link href="https://hegz.me/blog/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>
