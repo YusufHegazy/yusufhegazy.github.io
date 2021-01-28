@@ -14,6 +14,7 @@
       
       <guid>https://hegz.me/writeups/leaky_pipe/</guid>
       <description>In this challenge we recieved a binary in which we are asked to exploit and somehow retrieve the flag.
+you can find the binary for this challenge here
 Initial Analysis We start by running the binary and checking it behavior.
 ./leaky_pipe We have just fixed the plumbing systm, let&#39;s hope there&#39;s no leaks! &amp;gt;.&amp;gt; aaaaah shiiit wtf is dat address doin here... 0x7ffde7760410 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA &amp;lt;--- our input Segmentation fault (core dumped) And as we see, we can already get a segfault by spamming some A&amp;rsquo;s in the input.</description>
     </item>
