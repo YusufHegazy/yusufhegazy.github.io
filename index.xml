@@ -6,7 +6,22 @@
     <description>Recent content on Yusuf Hegazy</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 17 Jan 2021 19:07:42 +0200</lastBuildDate><atom:link href="https://hegz.me/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 27 Apr 2021 03:06:15 +0200</lastBuildDate>
+    
+	<atom:link href="https://hegz.me/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Favorite Binary Exploitation Resources</title>
+      <link>https://hegz.me/posts/bof-resources/</link>
+      <pubDate>Tue, 27 Apr 2021 03:06:15 +0200</pubDate>
+      
+      <guid>https://hegz.me/posts/bof-resources/</guid>
+      <description>These are by far the best resources I have found and have actually tried since I started learning binary exploitation.
+Don&amp;rsquo;t waste your time choosing which is the best resource, just pick one and start digging in. They are all awesome!
+Video  Hegzploit - Arabic Nakerah Network&amp;rsquo;s BOF Playlist - Arabic (Windows) LiveOverflow GynvaelEN Search for topics on ippsec.rocks The Cyber Mentor&amp;rsquo;s Playlist (Windows) PinkDraconian&amp;rsquo;s Playlist John Hammond&amp;rsquo;s Playlist  Full Fledged Courses  Pwn College Georgia Institute of Technology Course Guyintuxedo - Nightmare  Practice Material  Exploit Exercises picoCTF pwnable.</description>
+    </item>
+    
     <item>
       <title>Leaky Pipe (0xL4ugh CTF)</title>
       <link>https://hegz.me/writeups/leaky_pipe/</link>
@@ -16,7 +31,7 @@
       <description>In this challenge we recieved a binary in which we are asked to exploit and somehow retrieve the flag.
 you can find the binary for this challenge here
 Initial Analysis We start by running the binary and checking it behavior.
-./leaky_pipe We have just fixed the plumbing systm, let&#39;s hope there&#39;s no leaks! &amp;gt;.&amp;gt; aaaaah shiiit wtf is dat address doin here... 0x7ffde7760410 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA &amp;lt;--- our input Segmentation fault (core dumped) And as we see, we can already get a segfault by spamming some A&amp;rsquo;s in the input.</description>
+./leaky_pipeWe have just fixed the plumbing systm, let&#39;s hope there&#39;s no leaks!&amp;gt;.&amp;gt; aaaaah shiiit wtf is dat address doin here... 0x7ffde7760410AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA &amp;lt;--- our inputSegmentation fault (core dumped)And as we see, we can already get a segfault by spamming some A&amp;rsquo;s in the input.</description>
     </item>
     
     <item>

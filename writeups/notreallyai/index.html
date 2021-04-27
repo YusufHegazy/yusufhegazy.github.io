@@ -89,7 +89,7 @@
             <span class="logo__text">$ cd /home/</span>
             <span class="logo__cursor" style=
                   "
-                   background-color:#00FF00;
+                   background-color:#32CD32;
                    animation-duration:1.2s;">
             </span>
         
@@ -203,7 +203,7 @@ Non<span style="color:#f92672">-</span>debugging symbols:
 <li>response function maybe vulnerable to a format string vulnerability (since there is a printf call)</li>
 <li>the flaggy function is a dead code, our goal is to call it.</li>
 </ul>
-<p>so let&rsquo;s start by running some input on the binary, let&rsquo;s test with a couple of <code>%x</code>&rsquo;s:</p>
+<p>so let&rsquo;s start by running some input on the binary, let&rsquo;s test with a couple of <code>%x</code>'s:</p>
 <pre><code>hegz@hegzbox:~/ractf/Not_Really_AI$ ./nra
 How are you finding RACTF?
 %x %x %x %x    
@@ -310,7 +310,7 @@ using any calculator or just python, we can calculate the integer value of any h
 <hr>
 <ol start="3">
 <li><code>[Address_of_puts entry number on the stack]:</code>
-to calculate the offset of puts in our printf stack leak, we use an Egg i.e: AAAA, and follow it with some <code>%x</code>&rsquo;s until we can locate it&rsquo;s offset.</li>
+to calculate the offset of puts in our printf stack leak, we use an Egg i.e: AAAA, and follow it with some <code>%x</code>'s until we can locate it&rsquo;s offset.</li>
 </ol>
 <pre><code>hegz@hegzbox:~/ractf/Not_Really_AI$ ./nra 
 How are you finding RACTF?

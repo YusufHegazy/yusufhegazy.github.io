@@ -5,8 +5,47 @@
         <description>Recent content in Posts on Yusuf Hegazy</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
-        <lastBuildDate>Mon, 30 Nov 2020 02:46:12 +0200</lastBuildDate>
+        <lastBuildDate>Tue, 27 Apr 2021 03:06:15 +0200</lastBuildDate>
         <atom:link href="https://hegz.me/posts/index.xml" rel="self" type="application/rss+xml" />
+        
+        <item>
+            <title>Favorite Binary Exploitation Resources</title>
+            <link>https://hegz.me/posts/bof-resources/</link>
+            <pubDate>Tue, 27 Apr 2021 03:06:15 +0200</pubDate>
+            
+            <guid>https://hegz.me/posts/bof-resources/</guid>
+            <description>These are by far the best resources I have found and have actually tried since I started learning binary exploitation.
+Don&amp;rsquo;t waste your time choosing which is the best resource, just pick one and start digging in. They are all awesome!
+Video  Hegzploit - Arabic Nakerah Network&amp;rsquo;s BOF Playlist - Arabic (Windows) LiveOverflow GynvaelEN Search for topics on ippsec.rocks The Cyber Mentor&amp;rsquo;s Playlist (Windows) PinkDraconian&amp;rsquo;s Playlist John Hammond&amp;rsquo;s Playlist  Full Fledged Courses  Pwn College Georgia Institute of Technology Course Guyintuxedo - Nightmare  Practice Material  Exploit Exercises picoCTF pwnable.</description>
+            <content type="html"><![CDATA[<p>These are by far the best resources I have found and <em>have actually tried</em> since I started learning binary exploitation.</p>
+<p>Don&rsquo;t waste your time choosing which is the best resource, just pick one and start digging in. They are all awesome!</p>
+<h2 id="video">Video</h2>
+<ul>
+<li><a href="https://www.youtube.com/playlist?list=PL-HprVjV5ZtlPqcpwmAMD3JiFW85wQiV7">Hegzploit - Arabic</a></li>
+<li><a href="https://www.youtube.com/playlist?list=PL_yseowcuqYIaReP8ttfr0BAxbqZ7tmhq">Nakerah Network&rsquo;s BOF Playlist - Arabic (Windows)</a></li>
+<li><a href="https://www.youtube.com/channel/UClcE-kVhqyiHCcjYwcpfj9w">LiveOverflow</a></li>
+<li><a href="https://www.youtube.com/user/GynvaelEN">GynvaelEN</a></li>
+<li><a href="https://ippsec.rocks/">Search for topics on ippsec.rocks</a></li>
+<li><a href="https://www.youtube.com/playlist?list=PLLKT__MCUeix3O0DPbmuaRuR_4Hxo4m3G">The Cyber Mentor&rsquo;s Playlist (Windows)</a></li>
+<li><a href="https://www.youtube.com/playlist?list=PLeSXUd883dhg48iGecOxvCieQas1-dsZo">PinkDraconian&rsquo;s Playlist</a></li>
+<li><a href="https://www.youtube.com/playlist?list=PL1H1sBF1VAKVg451vJ-rx0y_ZuQMHPamH">John Hammond&rsquo;s Playlist</a></li>
+</ul>
+<h2 id="full-fledged-courses">Full Fledged Courses</h2>
+<ul>
+<li><a href="https://pwn.college/">Pwn College</a></li>
+<li><a href="https://tc.gts3.org/cs6265/2019/tut/">Georgia Institute of Technology Course</a></li>
+<li><a href="https://guyinatuxedo.github.io/">Guyintuxedo - Nightmare</a></li>
+</ul>
+<h2 id="practice-material">Practice Material</h2>
+<ul>
+<li><a href="https://exploit.education">Exploit Exercises</a></li>
+<li><a href="https://picoctf.org/">picoCTF</a></li>
+<li><a href="https://pwnable.tw/">pwnable.tw</a></li>
+<li><a href="http://pwnable.kr/">pwnable.kr</a></li>
+<li><a href="https://ropemporium.com/">ROP Emporium</a></li>
+</ul>
+]]></content>
+        </item>
         
         <item>
             <title>Buffer Overflows for Newbies</title>

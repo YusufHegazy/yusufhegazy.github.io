@@ -3,6 +3,21 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://hegz.me/posts/bof-resources/</loc>
+    <lastmod>2021-04-27T03:06:15+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hegz.me/posts/</loc>
+    <lastmod>2021-04-27T03:06:15+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hegz.me/</loc>
+    <lastmod>2021-04-27T03:06:15+02:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://hegz.me/tags/bof/</loc>
     <lastmod>2021-01-17T19:07:42+02:00</lastmod>
   </url>
@@ -23,22 +38,12 @@
   </url>
   
   <url>
-    <loc>https://hegz.me/</loc>
-    <lastmod>2021-01-17T19:07:42+02:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://hegz.me/writeups/trigger_happy/</loc>
     <lastmod>2021-01-16T16:33:49+02:00</lastmod>
   </url>
   
   <url>
     <loc>https://hegz.me/posts/bof-for-normies/</loc>
-    <lastmod>2020-11-30T02:46:12+02:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hegz.me/posts/</loc>
     <lastmod>2020-11-30T02:46:12+02:00</lastmod>
   </url>
   
