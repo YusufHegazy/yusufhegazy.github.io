@@ -1,0 +1,361 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Posts on Yusuf Hegazy</title>
+        <link>https://hegz.me/posts/</link>
+        <description>Recent content in Posts on Yusuf Hegazy</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>en-us</language>
+        <lastBuildDate>Thu, 01 Apr 2021 20:19:31 +0200</lastBuildDate>
+        <atom:link href="https://hegz.me/posts/index.xml" rel="self" type="application/rss+xml" />
+        
+        <item>
+            <title>A Journey into Mathematical Logic: Diophantus of Alexandria</title>
+            <link>https://hegz.me/posts/diophantus/</link>
+            <pubDate>Thu, 01 Apr 2021 20:19:31 +0200</pubDate>
+            
+            <guid>https://hegz.me/posts/diophantus/</guid>
+            <description>Introduction In this series of blog posts, I will be discussing some of my favorite topics in math, It mostly falls under the domains of mathematical logic and computability theory.
+Diophantus of Alexandria Diophantus was a Greek mathematician that flourished around 250 AD, he is most famous for his book &amp;ldquo;Arithmetica&amp;rdquo; in which he had compiled 130 algebraic problems among thirteen books where most of their solutions were positive integers, and that&amp;rsquo;s why mathematicians call such algebraic equations as &amp;ldquo;Diophantine Equations&amp;rdquo;.</description>
+            <content type="html"><![CDATA[<h2 id="introduction">Introduction</h2>
+<p>In this series of blog posts, I will be discussing some of my favorite topics in math, It mostly falls under the domains of mathematical logic and computability theory.</p>
+<h2 id="diophantus-of-alexandria">Diophantus of Alexandria</h2>
+<p>Diophantus was a Greek mathematician that flourished around 250 AD, he is most famous for his book &ldquo;Arithmetica&rdquo; in which he had compiled 130 algebraic problems among thirteen books where most of their solutions were positive integers, and that&rsquo;s why mathematicians call such algebraic equations as &ldquo;Diophantine Equations&rdquo;.</p>
+<p>It is said that he wrote his book &ldquo;Arithmetica&rdquo; as a distraction from his son&rsquo;s death, and it turned out to be one of the most brilliant books that discussed algebra and he was amongst the first to use symbolic representations for real-life problems, he was also the first to use powers of more than 2 and 3 which had no physical meaning unlike the square and the cube, his solutions also never involved zeroes or negative numbers.</p>
+<p>Diophantus had a brilliant way of solving problems involving multiple variables using only a single variable, he did it in such a way that he finds relations that represent the other variables in terms of the first variable.</p>
+<h2 id="a-diophantine-problem">A Diophantine Problem</h2>
+<p>For Example, In his first problem of the fourth book:</p>
+<blockquote>
+<p>&ldquo;Divide a given number into two cubes such that the sum of their sides is a given number&rdquo;.</p>
+</blockquote>
+<p>He then provides two numbers:</p>
+<blockquote>
+<ul>
+<li>Given Number: 370</li>
+<li>Sum of Sides: 10</li>
+</ul>
+</blockquote>
+<h3 id="normal-approach">Normal Approach</h3>
+<p>We can visualize the problem Geomterically as follows:
+
+    <img src="/img/logic/cubes.png"  alt="two cubes X and Y"  class="center"  style="border-radius: 8px;"  />
+
+
+Let&rsquo;s solve it using second grade algebra!</p>
+<p>The two sides ($x$ and $y$) add up to 10 and the sum of their cubes ($x^3$ and $y^3$)  is 370.<br>
+$x + y = 10$<br>
+$x^3 + y^3 = 370$</p>
+<p>$x = 10 - y$<br>
+$(10 - y)^3 + y^3 = 370$<br>
+$(1000 + 30y^2 - 300y - y^3) + y^3 = 370$<br>
+$30y^2 - 300y + 630 = 0$<br>
+$y^2 - 10y + 21 = 0$<br>
+$(y - 7)(y - 3) = 0$<br>
+<strong>y = 7, y = 3</strong></p>
+<p>I didn&rsquo;t want to bother with a detailed explanation of the steps above (I hope all of those who are reading this know some basic algebra), here is how Diophantus solved such problems.</p>
+<h3 id="diophantuss-approach">Diophantus&rsquo;s Approach</h3>
+<p>He would first express the two variables $x$ and $y$ as two relations in terms of one variable so his $x$ will be $(x+5)$ and his $y$ will be $(x-5)$.<br>
+$(x + 5) + (x - 5) = 10$</p>
+<p>These indeed satisfy the first equation and will yield 10 upon adding them together, and for the second equation, he describes it as follows:<br>
+$(5 + x)^3 + (5 - x)^3 = 370$</p>
+<p>It will seem a bit odd and crazy at first, but once we start expanding these cubes, terms will start canceling out like crazy until we are left with:<br>
+$30x^2 + 250 = 370$</p>
+<p>Which will yield:<br>
+$x^2 = 4$</p>
+<p>Finally we arrive at the same solution:<br>
+$x = 2$<br>
+$(x + 5) = {\bf 7}$<br>
+$(x - 5) = {\bf 3}$</p>
+<p>his problems may seem plain and simple at the first glance but they sometimes become very tough and hard to attack, a famous quote by the German mathematician Hermann Hankel regarding the diophantine problems, &ldquo;Every question requires a quite special method, which often will not serve even for the most closely allied problems. It is on that account difficult for a modern mathematician even after studying 100 Diophantine solutions to solve the 101st problem&rdquo;</p>
+<h2 id="fermats-last-theorem">Fermat&rsquo;s Last Theorem</h2>
+<p>Pierre de Fermat was a famous 16th-century French mathematician, he had a copy of Diophantus&rsquo;s Arithmetica and had filled its margins extensively with notes.<br>
+At one of the problems that involved a solution in the form of $x^2\ +\ b^2\ =\ c^2$, Fermat wrote:</p>
+<blockquote>
+<p>&ldquo;On the contrary, it is impossible to separate a cube into two cubes, a fourth power into two fourth powers, or generally any power above the second into two powers of the same degree. I have discovered a truly marvelous demonstration which this margin is too narrow to contain.”</p>
+</blockquote>
+<p>This nonexistent proof became knows as “Fermat’s Last Theorem”, It was later solved by the British Number Theorist Andrew Wiles in 1993 after three and a half centuries, he then received the Abel Prize in 2016 for his solution.</p>
+]]></content>
+        </item>
+        
+        <item>
+            <title>Buffer Overflows for Newbies</title>
+            <link>https://hegz.me/posts/bof-for-normies/</link>
+            <pubDate>Mon, 30 Nov 2020 02:46:12 +0200</pubDate>
+            
+            <guid>https://hegz.me/posts/bof-for-normies/</guid>
+            <description>What is a Buffer anyway? We can think of buffers as containers to hold our data for later use, it&amp;rsquo;s not really something specific to computer science; In fact, we have buffers in electronics, mechanics, chemistry and even politics! We can say that the word buffer is just a fancy name for a placeholder (temporary storage)!
+Buffer in Computer Science Now, it&amp;rsquo;s time to get more technical and get to know buffers more in computer science!</description>
+            <content type="html"><![CDATA[
+    <img src="/img/bof-normies/header.png"  alt="Fractal Tree"  class="center"  style="border-radius: 8px;"  />
+
+
+<h2 id="what-is-a-buffer-anyway">What is a Buffer anyway?</h2>
+<p>We can think of buffers as containers to hold our data for later use, it&rsquo;s not really something specific to computer science; In fact, we have buffers in electronics, mechanics, chemistry and even politics!
+We can say that the word buffer is just a fancy name for a placeholder (temporary storage)!</p>
+<h2 id="buffer-in-computer-science">Buffer in Computer Science</h2>
+<p>Now, it&rsquo;s time to get more technical and get to know buffers more in computer science!</p>
+<p>Online video streaming is a pretty good application of buffering, back in the old days we would see YouTube showing that nostalgic loading bar while waiting the video to load and that&rsquo;s exactly why we use buffers!
+We need to store video data in someplace so that when we need that data we can load it directly from the computer&rsquo;s memory since we can&rsquo;t really have our internet connection playback videos in realtime without having some temporarily storage for data to reside in, and that&rsquo;s the reason why livestreams never sync with realtime and have a couple seconds delay.</p>
+<p>here is a more lower level representation of a buffer:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#75715e">#define BUFSIZE 1024
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">char</span> buffer[BUFSIZE];
+size_t len;
+
+<span style="color:#75715e">// ... later
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">while</span>((len<span style="color:#f92672">=</span>read(STDIN, <span style="color:#f92672">&amp;</span>buffer, BUFSIZE)) <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">0</span>)
+    write(STDOUT, buffer, len);
+</code></pre></div><p>This snippet basically check for data available then reads it from the standard input (command line) and writes that data back to the standard output (command line too).</p>
+<h2 id="buffer-overflows">Buffer Overflows!</h2>
+<p>It&rsquo;s time for the good stuff now!</p>
+<p>Let&rsquo;s say we have an arbitrary variable of size 5 bytes, and we stored some value in that variable which <em>exceeds 5 bytes</em>, that&rsquo;s a simple buffer overflow!</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#66d9ef">char</span> someVariable[<span style="color:#ae81ff">5</span>];
+
+<span style="color:#75715e">/* we are trying to copy 15 bytes to a 5 bytes sized variable */</span>
+memcpy(someVariable, <span style="color:#e6db74">&#34;Hello, world!</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, <span style="color:#ae81ff">15</span>); 
+
+printf(someVariable);
+</code></pre></div><p>We encounter buffer overflows more frequently than we imagine, ever seen <code>Segmentation Fault</code> appear in your C program out of nowhere? That&rsquo;s also a buffer overflow but your computer has prevented it from causing any damage and stopped the program from running.</p>
+<p>Let&rsquo;s get back to our 5 bytes overflown variable example. What happens to the overflown data? Where is it&rsquo;s destination? Does it get lost in the void of nothingness?</p>
+<p>Nope, in fact we just overwrite other data when we overflow any variable, and that&rsquo;s the core of our problem. We can&rsquo;t just overwrite data and act as if nothing happened. What if we overwrite important data? What if we can overwrite data related to process memory and already running programs?</p>
+<p>These are all possibilities which are just a mere consequence of buffer overflows and can cause great damage to computers</p>
+<h2 id="weaponizing-buffer-overflows">Weaponizing Buffer Overflows</h2>
+<p>A basic technique used by hackers when exploiting buffer overflow vulnerabilities is determining the place where data gets overwritten and <strong>handcrafting</strong> the overflown data to inject <strong>arbitrary code</strong> in the program, imagine if that program runs at elevated privileges and a hacker takes control of it&rsquo;s execution flow, you get <em>pwned.</em></p>
+<p>And that&rsquo;s just the basic technique in abusing buffer overflow vulnerabilities.</p>
+<h2 id="am-i-really-safe">Am I Really Safe?</h2>
+<p>Sadly, yes you are safe.</p>
+<p>Buffer overflows aren&rsquo;t as popular in 2020 (as of writing this article) as they used to be back in the old days of computers, all modern processors/operating systems have strict rules and mitigations for all the paradigms and techniques of buffer overflows.</p>
+<p>Some of these famous mitigations are:</p>
+<ul>
+<li>
+<p><strong>ASLR</strong> (Address Space Layout Randomization)</p>
+<p>Basically randomizes all the memory addresses at runtime whenever you execute any program so it makes it impossible to hardcode memory addresses for exploiting buffer overflow attacks</p>
+<p>i.e: the exploit needs to be completely dynamic</p>
+</li>
+<li>
+<p><strong>NX Bit</strong></p>
+<p>Basically marks areas of memory as non-executable, prevents hackers from injecting malicious code into areas of memory in an attempt to execute it.</p>
+</li>
+<li>
+<p><strong>Stack Canaries</strong></p>
+<p>Basically generates some random value in memory at runtime and checks before returning from any function if that random value got overwritten or not, if yes then program exits.</p>
+</li>
+</ul>
+<p>And these are just some of the basic mitigation used in 2020.</p>
+<p>But again, <em>these doesn&rsquo;t really make your computer invincible</em> as much as making it just harder for an attacker to compromise your system using buffer overflow attacks.</p>
+<p>Hackers still can bypass these mitigations using underhanded methods such as bruteforce and leaking addresses from memory but using these mitigations correctly can make buffer overflows nearly useless.</p>
+<p>It&rsquo;s also worthy to mention that buffer overflows can be prevented from the programmers side by following the coding best practices and avoiding unsanitized input etc&hellip;</p>
+]]></content>
+        </item>
+        
+        <item>
+            <title>My Favorite Linux Distro</title>
+            <link>https://hegz.me/posts/distro/</link>
+            <pubDate>Sun, 27 Sep 2020 23:27:38 +0200</pubDate>
+            
+            <guid>https://hegz.me/posts/distro/</guid>
+            <description>To Linux or not to Linux Since a couple months ago, i have decided to try and switch fully to linux and ditch that piece of junk they call windows.
+Now, that&amp;rsquo;s a bit misleading since i have been using windows for the past 12-13 years of my keyboard smashing journey but i don&amp;rsquo;t really feel any guilt doing this, in fact windows is nothing more of a bottleneck to me or so have i figured later.</description>
+            <content type="html"><![CDATA[<h2 id="to-linux-or-not-to-linux">To Linux or not to Linux</h2>
+<p>Since a couple months ago, i have decided to try and switch fully to linux and ditch that piece of junk they call windows.</p>
+<p>Now, that&rsquo;s a bit misleading since i have been using windows for the past 12-13 years of my keyboard smashing journey but i don&rsquo;t really feel any guilt doing this, in fact windows is nothing more of a bottleneck to me <em>or so have i figured later</em>.</p>
+<p>enough ranting, maybe this needs it&rsquo;s own blog post after all <em>or maybe not</em>, it&rsquo;s a highly controversial topic whatsoever. Just believe me windows is pure evil.</p>
+<h2 id="settling-on-an-os">Settling on an OS</h2>
+<p>I have tried tons of Linux distrois but i always kept jumping from one to the next, never settled on a distro, at first i wanted to use it mainly for my cybersecurity hobby so i thought Kali would be a pretty nice choice&hellip;</p>
+<p>but guess what, it wasn&rsquo;t&hellip;</p>
+<p>I really think that kali is a pretty good OS but not that good for using as a daily driver system, it&rsquo;s just bloated with a tons of security tools that you will never get chance to use and maybe you don&rsquo;t even know of their existence.</p>
+<p>so i started trying different operating systems ranging from the classic debian to using arch linux which actually was the thing i liked the most!</p>
+<h2 id="why-arch">Why Arch</h2>
+<p>beside the fact that you get to customize your operating system to the max level, you also get the Arch User Repository (AUR) which contains 64,441 packages as of writing this, it&rsquo;s a rolling release distro which basically gives you gradual little updates as they are released unlike other stable release distro that give you a bulky big update that sometimes forces you to reinstall your os.</p>
+<p>Arch is a bit tougher than any other OS though, since they don&rsquo;t provide any graphical installer like most distros and you have to configure it yourself from the groundup, a pretty awesome arch based distro is <strong>Manjaro</strong> which is bascially a simpified version of arch with all Arch&rsquo;s perks and that&rsquo;s what i have setteled on!</p>
+<h2 id="manjaro-for-cybersecurity">Manjaro for Cybersecurity</h2>
+<p>So we now have an arch distro that is lightweigt, fully customizable and contains an awesome package manager with the arch user repositoty, and that&rsquo;s not even the end! we can add to our manjaro setup <a href="https://blackarch.org/downloads.html#install-repo">the blackarch repo</a> which contains as of writing this article a whooping 7030 security tool ready for installing at your fingertips!</p>
+<p>now we can customize our own distro and bundle it with the tools we only need!</p>
+<h2 id="the-skys-your-limit">The Sky&rsquo;s your limit</h2>
+<p>Manjaro comes in differnt desktop enviroments, but i have actually tried all of them inclduing XFCE, KDE and MATE and the one that sucked the least was XFCE&hellip;</p>
+<p>but that was until i discovered the heaven of tiling window managers, which basically can speed up your keyboard smashing habits by 10x if you invested the little time into making it your own!</p>
+<p>here are some pics of my Manjaro boxes!</p>
+<p>
+    <img src="/img/distro/screenie1.png"  alt="Fractal Tree"  class="center"  style="border-radius: 8px;"  />
+
+
+<a href="https://www.reddit.com/r/unixporn/comments/irhskz/i3_the_arctic/">config</a></p>
+<p>
+    <img src="/img/distro/screenie2.jpeg"  alt="Fractal Tree"  class="center"  style="border-radius: 8px;"  />
+
+
+<a href="https://www.reddit.com/r/unixporn/comments/ixexgc/i3gaps_someone_paid_my_bail_so_now_we_have/">config</a></p>
+]]></content>
+        </item>
+        
+        <item>
+            <title>Optimizing Recursion</title>
+            <link>https://hegz.me/posts/lets-talk-recursion/</link>
+            <pubDate>Thu, 24 Sep 2020 15:52:30 +0200</pubDate>
+            
+            <guid>https://hegz.me/posts/lets-talk-recursion/</guid>
+            <description>Recursion is a pretty improtant topic in programming and it&amp;rsquo;s not that hard to grasp or even implement, but how about actually using it correctly?
+In this blog post i will try to explain the basic concept of recursion and then show why recursion can be so inefficient and how to optimize it using Call Tail Optimization!
+Normal Recursion, A Factorial Example Most of us tech nerds have already dealt with the good &amp;lsquo;ol recursion, let&amp;rsquo;s refresh our understanding using the iconic factorial program.</description>
+            <content type="html"><![CDATA[
+    <img src="/img/recursion/recursion.png"  alt="Fractal Tree"  class="center"  style="border-radius: 8px;"  />
+
+
+<p>Recursion is a pretty improtant topic in programming and it&rsquo;s not that hard to grasp or even implement, but how about <strong>actually using it correctly?</strong></p>
+<p>In this blog post i will try to explain the basic concept of recursion and then show why recursion can be so inefficient and how to optimize it using <strong>Call Tail Optimization!</strong></p>
+<h2 id="normal-recursion-a-factorial-example">Normal Recursion, A Factorial Example</h2>
+<p>Most of us tech nerds have already dealt with the good &lsquo;ol recursion, let&rsquo;s refresh our understanding using the iconic factorial program.
+$$0! = 1$$
+$$n! = n (n-1)!$$
+Python Implementation:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Python" data-lang="Python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">fact</span>(x):
+	<span style="color:#66d9ef">if</span> (x<span style="color:#f92672">==</span><span style="color:#ae81ff">0</span>):
+		<span style="color:#66d9ef">return</span> <span style="color:#ae81ff">1</span>
+	<span style="color:#66d9ef">else</span>:
+		<span style="color:#66d9ef">return</span> x <span style="color:#f92672">*</span> fact(x<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>)
+</code></pre></div><p><em>But python is just too mainstream and overrated, let&rsquo;s use Lisp!</em></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Scheme" data-lang="Scheme">(<span style="color:#66d9ef">define </span>(<span style="color:#a6e22e">fact</span> x)
+  (<span style="color:#66d9ef">if </span>(= x <span style="color:#ae81ff">0</span>)
+      <span style="color:#ae81ff">1</span>
+	  (* x (<span style="color:#a6e22e">fact</span> (- x <span style="color:#ae81ff">1</span>)))))
+</code></pre></div><p>ain&rsquo;t Scheme just too beautiful?
+Now, let&rsquo;s inspect the program behavior!</p>
+<h2 id="tracing-the-recursion">Tracing The Recursion</h2>
+<p>let&rsquo;s say we want to execute <code>(fact 5)</code> which supposedly evaluates to 120.
+here is the trace of the factorial operation:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Scheme" data-lang="Scheme">(<span style="color:#a6e22e">fact</span> <span style="color:#ae81ff">5</span>)
+(* <span style="color:#ae81ff">5</span> (<span style="color:#a6e22e">fact</span> <span style="color:#ae81ff">4</span>))
+(* <span style="color:#ae81ff">5</span> (* <span style="color:#ae81ff">4</span> (<span style="color:#a6e22e">fact</span> <span style="color:#ae81ff">3</span>)))
+(* <span style="color:#ae81ff">5</span> (* <span style="color:#ae81ff">4</span> (* <span style="color:#ae81ff">3</span> (<span style="color:#a6e22e">fact</span> <span style="color:#ae81ff">2</span>))))
+(* <span style="color:#ae81ff">5</span> (* <span style="color:#ae81ff">4</span> (* <span style="color:#ae81ff">3</span> (* <span style="color:#ae81ff">2</span> (<span style="color:#a6e22e">fact</span> <span style="color:#ae81ff">1</span>)))))
+(* <span style="color:#ae81ff">5</span> (* <span style="color:#ae81ff">4</span> (* <span style="color:#ae81ff">3</span> (* <span style="color:#ae81ff">2</span> (* <span style="color:#ae81ff">1</span> (<span style="color:#a6e22e">fact</span> <span style="color:#ae81ff">0</span>))))))
+(* <span style="color:#ae81ff">5</span> (* <span style="color:#ae81ff">4</span> (* <span style="color:#ae81ff">3</span> (* <span style="color:#ae81ff">2</span> (* <span style="color:#ae81ff">1</span> <span style="color:#ae81ff">1</span>)))))
+(* <span style="color:#ae81ff">5</span> (* <span style="color:#ae81ff">4</span> (* <span style="color:#ae81ff">3</span> (* <span style="color:#ae81ff">2</span> <span style="color:#ae81ff">1</span>))))
+(* <span style="color:#ae81ff">5</span> (* <span style="color:#ae81ff">4</span> (* <span style="color:#ae81ff">3</span> <span style="color:#ae81ff">2</span>)))
+(* <span style="color:#ae81ff">5</span> (* <span style="color:#ae81ff">4</span> <span style="color:#ae81ff">6</span>))
+(* <span style="color:#ae81ff">5</span> <span style="color:#ae81ff">24</span>)
+<span style="color:#ae81ff">120</span>
+</code></pre></div><p>here&rsquo;s the pythonic version for those who are struggling with lisp (it&rsquo;s way easier believe me)</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Python" data-lang="Python">fact(<span style="color:#ae81ff">5</span>)
+<span style="color:#ae81ff">5</span> <span style="color:#f92672">*</span> fact(<span style="color:#ae81ff">4</span>)
+<span style="color:#ae81ff">5</span> <span style="color:#f92672">*</span> (<span style="color:#ae81ff">4</span> <span style="color:#f92672">*</span> fact(<span style="color:#ae81ff">3</span>))
+<span style="color:#ae81ff">5</span> <span style="color:#f92672">*</span> (<span style="color:#ae81ff">4</span> <span style="color:#f92672">*</span> (<span style="color:#ae81ff">3</span> <span style="color:#f92672">*</span> fact(<span style="color:#ae81ff">2</span>)))
+<span style="color:#ae81ff">5</span> <span style="color:#f92672">*</span> (<span style="color:#ae81ff">4</span> <span style="color:#f92672">*</span> (<span style="color:#ae81ff">3</span> <span style="color:#f92672">*</span> (<span style="color:#ae81ff">2</span> <span style="color:#f92672">*</span> fact(<span style="color:#ae81ff">1</span>))))
+<span style="color:#ae81ff">5</span> <span style="color:#f92672">*</span> (<span style="color:#ae81ff">4</span> <span style="color:#f92672">*</span> (<span style="color:#ae81ff">3</span> <span style="color:#f92672">*</span> (<span style="color:#ae81ff">2</span> <span style="color:#f92672">*</span> (<span style="color:#ae81ff">1</span> <span style="color:#f92672">*</span> fact(<span style="color:#ae81ff">0</span>)))))
+<span style="color:#ae81ff">5</span> <span style="color:#f92672">*</span> (<span style="color:#ae81ff">4</span> <span style="color:#f92672">*</span> (<span style="color:#ae81ff">3</span> <span style="color:#f92672">*</span> (<span style="color:#ae81ff">2</span> <span style="color:#f92672">*</span> (<span style="color:#ae81ff">1</span> <span style="color:#f92672">*</span> <span style="color:#ae81ff">1</span>))))
+<span style="color:#ae81ff">5</span> <span style="color:#f92672">*</span> (<span style="color:#ae81ff">4</span> <span style="color:#f92672">*</span> (<span style="color:#ae81ff">3</span> <span style="color:#f92672">*</span> (<span style="color:#ae81ff">2</span> <span style="color:#f92672">*</span> <span style="color:#ae81ff">1</span>)))
+<span style="color:#ae81ff">5</span> <span style="color:#f92672">*</span> (<span style="color:#ae81ff">4</span> <span style="color:#f92672">*</span> (<span style="color:#ae81ff">3</span> <span style="color:#f92672">*</span> <span style="color:#ae81ff">2</span>))
+<span style="color:#ae81ff">5</span> <span style="color:#f92672">*</span> (<span style="color:#ae81ff">4</span> <span style="color:#f92672">*</span> <span style="color:#ae81ff">6</span>)
+<span style="color:#ae81ff">5</span> <span style="color:#f92672">*</span> <span style="color:#ae81ff">24</span>
+<span style="color:#ae81ff">120</span>
+</code></pre></div><p>Did you figure out the flaw of our simple recursion implementation yet?</p>
+<p>It&rsquo;s pretty simple, the way we expand the factorial on each iteration so that it grows and keeps growing until we fully expand it is just so inefficient and wastes memory space.</p>
+<p>The waste of memory space comes from the fact that each call of <code>(fact x)</code> will allocate a new stack frame to store its data, so we have used around 6 stack frames for this simple calculation, allocating and popping stack frames is a relatively intensive operation for the CPU.</p>
+<p>The source of this flaw is the multiplication that we are performing with our recurred call.</p>
+<p>So Tail Call Optimization or Tail Recursion are just fancy names for a simple rule we need to follow in order to optimize our recursive functions.</p>
+<p><em>&ldquo;The recurred call shouldn&rsquo;t be combined with other operations&rdquo;</em></p>
+<p>i.e: we need to move the multiplication operator out of the recurred call in the factorial function</p>
+<h2 id="using-tail-recursion">Using Tail Recursion</h2>
+<p>let&rsquo;s rewrite the factorial function in Tail Recursion:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Scheme" data-lang="Scheme">(<span style="color:#66d9ef">define </span>(<span style="color:#a6e22e">fact-tail</span> x accum)
+  (<span style="color:#66d9ef">if </span>(= x <span style="color:#ae81ff">0</span>) accum 
+  (<span style="color:#a6e22e">fact-tail</span> (- x <span style="color:#ae81ff">1</span>) (* x accum))))
+
+(<span style="color:#66d9ef">define </span>(<span style="color:#a6e22e">fact</span> x) (<span style="color:#a6e22e">fact-tail</span> x <span style="color:#ae81ff">1</span>))
+</code></pre></div><h3 id="pythonic-version">Pythonic version:</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Python" data-lang="Python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">factTail</span>(x, accum):
+	<span style="color:#66d9ef">if</span> (x <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>):
+		<span style="color:#66d9ef">return</span> accum
+	<span style="color:#66d9ef">else</span>:
+		<span style="color:#66d9ef">return</span> factTail(x<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>, x<span style="color:#f92672">*</span>accum)
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">fact</span>(x):
+	<span style="color:#66d9ef">return</span> factTail(x, <span style="color:#ae81ff">1</span>)
+</code></pre></div><p>what we did in that snippet above is pretty simple, we just split the work across two functions, the first function <code>(fact-tail x accum)</code> will iterate and the second function <code>(fact x)</code> will call the first function and returns the value of each iteration (we have also moved the multiplication operation to it&rsquo;s own variable) so we basically have no extra operations going on, <em>in fact calling <code>(fact 0)</code> is now the same as calling <code>(fact 10000)</code> in terms of memory size.</em></p>
+<p>let&rsquo;s step through each iteration and see for ourselves how great is Tail Recursion:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Scheme" data-lang="Scheme">(<span style="color:#a6e22e">fact</span> <span style="color:#ae81ff">5</span>)
+(<span style="color:#a6e22e">fact-tail</span> <span style="color:#ae81ff">5</span> <span style="color:#ae81ff">1</span>)
+(<span style="color:#a6e22e">fact-tail</span> <span style="color:#ae81ff">4</span> <span style="color:#ae81ff">5</span>)
+(<span style="color:#a6e22e">fact-tail</span> <span style="color:#ae81ff">3</span> <span style="color:#ae81ff">20</span>)
+(<span style="color:#a6e22e">fact-tail</span> <span style="color:#ae81ff">2</span> <span style="color:#ae81ff">60</span>)
+(<span style="color:#a6e22e">fact-tail</span> <span style="color:#ae81ff">1</span> <span style="color:#ae81ff">120</span>)
+(<span style="color:#a6e22e">fact-tail</span> <span style="color:#ae81ff">0</span> <span style="color:#ae81ff">120</span>)
+<span style="color:#ae81ff">120</span>
+</code></pre></div><p>Pythonic Version:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Python" data-lang="Python">fact(<span style="color:#ae81ff">5</span>)
+factTail(<span style="color:#ae81ff">5</span>, <span style="color:#ae81ff">1</span>)
+factTail(<span style="color:#ae81ff">4</span>, <span style="color:#ae81ff">5</span>)
+factTail(<span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">20</span>)
+factTail(<span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">60</span>)
+factTail(<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">120</span>)
+factTail(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">120</span>)
+</code></pre></div><p>is this even recursion anymore, that&rsquo;s just <strong>fancy iteration!</strong></p>
+<p>we have used recursion in such a way that we store all the data to perform our evalutaion in each individual reccured call!
+All Hail Tail Call Optimization!</p>
+<h2 id="more-tail-recursion">More Tail Recursion!</h2>
+<p>here is one more example with the infamous fibonacci function in both normal Recursion and then Tail Recursion:</p>
+<p><em>(you try to implement it in python this time :p)</em></p>
+<h3 id="normal-recursion">Normal Recursion</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Scheme" data-lang="Scheme">(<span style="color:#66d9ef">define </span>(<span style="color:#a6e22e">fib</span> x)
+  (<span style="color:#66d9ef">cond </span>((= x <span style="color:#ae81ff">0</span>) <span style="color:#ae81ff">0</span>)
+  		((= x <span style="color:#ae81ff">1</span>) <span style="color:#ae81ff">1</span>)
+  		(<span style="color:#66d9ef">else </span>(+ (<span style="color:#a6e22e">fib</span> (- x <span style="color:#ae81ff">1</span>)) (<span style="color:#a6e22e">fib</span> (- x <span style="color:#ae81ff">2</span>))))))
+</code></pre></div><h3 id="tail-recursion">Tail Recursion</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Scheme" data-lang="Scheme">(<span style="color:#66d9ef">define </span>(<span style="color:#a6e22e">fib</span> x)
+    (<span style="color:#a6e22e">fib-iter</span> x <span style="color:#ae81ff">0</span> <span style="color:#ae81ff">1</span>))
+
+(<span style="color:#66d9ef">define </span>(<span style="color:#a6e22e">fib-iter</span> x a b)
+    (<span style="color:#66d9ef">cond </span>((= x <span style="color:#ae81ff">0</span>) a)
+    ((= x <span style="color:#ae81ff">1</span>) b)
+    (<span style="color:#66d9ef">else </span>(<span style="color:#a6e22e">fib-iter</span> (- x <span style="color:#ae81ff">1</span>) b (+ a b)))))
+</code></pre></div><p><em>All Hail The Tail Recursion</em></p>
+]]></content>
+        </item>
+        
+        <item>
+            <title>GDB Cheatsheet</title>
+            <link>https://hegz.me/posts/gdb-cheatsheet/</link>
+            <pubDate>Tue, 18 Aug 2020 13:56:57 +0000</pubDate>
+            
+            <guid>https://hegz.me/posts/gdb-cheatsheet/</guid>
+            <description>Data:
+ disas main to disassemble function x/50wx $esp examine 50 words in hex starting from esp x/50i $eip examine 50 instructions from eip x anything examine address and show it’s contents info variables varname will show any variable address (for global!) info functions to list all functions info frame shows the saved RTN address under &amp;ldquo;saved eip&amp;rdquo; info proc map shows memory map ctx shows general info about everything (works in gef only)    Flow</description>
+            <content type="html"><![CDATA[<ul>
+<li>
+<p>Data:</p>
+<ul>
+<li><code>disas main</code> to disassemble function</li>
+<li><code>x/50wx $esp</code> e<strong>x</strong>amine 50 <strong>w</strong>ords in <strong>h</strong>ex starting from <strong>esp</strong></li>
+<li><code>x/50i $eip</code> examine 50 instructions from eip</li>
+<li><code>x anything</code> examine address and show it’s contents</li>
+<li><code>info variables varname</code> will show any variable address (for global!)</li>
+<li><code>info functions</code> to list all functions</li>
+<li><code>info frame</code> shows the saved RTN address under &ldquo;saved eip&rdquo;</li>
+<li><code>info proc map</code> shows memory map</li>
+<li><code>ctx</code> shows general info about everything <em>(works in gef only)</em></li>
+</ul>
+</li>
+<li>
+<p>Flow</p>
+<ul>
+<li><code>b *address</code> or <code>b *function&lt;+number&gt;</code></li>
+<li><code>j *address</code> <em>to jump</em></li>
+<li><code>si</code> <strong>s</strong>tep <strong>i</strong>nstruction</li>
+<li><code>ni</code> step instruction and stepover functions</li>
+</ul>
+</li>
+<li>
+<p>Hook Stops
+we use these to execute certain commands everytime our program flow stops (ex: breakpoints, steps)</p>
+<ul>
+<li>to define a hook stop we run the following:</li>
+</ul>
+</li>
+</ul>
+<pre><code>define hook-stop
+&gt;info registers
+&gt;x/24wx $esp
+&gt;x/2i $eip
+&gt;end
+</code></pre>]]></content>
+        </item>
+        
+    </channel>
+</rss>
